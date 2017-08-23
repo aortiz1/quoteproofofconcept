@@ -1,0 +1,1838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://service.xrae.com/" elementFormDefault="qualified" targetNamespace="http://service.xrae.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Xrae.Service.Direct.Types.Enums" />
+  <xs:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Xrae.Pricing.VitalTerm.IO.VitalUL" />
+  <xs:element name="AddCase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:AddCaseRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AddCaseRequest">
+    <xs:sequence>
+      <xs:element name="AccountKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubjectProfile" nillable="true" type="tns:UnderwritingProfile" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Xrae.Service.Direct.Types.Enums" minOccurs="0" name="StateOfIssue" nillable="true" type="q1:StateAbbreviation" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddCaseRequest" nillable="true" type="tns:AddCaseRequest" />
+  <xs:complexType name="UnderwritingProfile">
+    <xs:sequence>
+      <xs:element name="DateOfBirth" nillable="true" type="tns:DateLongType" />
+      <xs:element name="Gender" type="tns:Gender" />
+      <xs:element minOccurs="0" name="PhysicalBuild" nillable="true" type="tns:BuildProfile" />
+      <xs:element minOccurs="0" name="PolicyDetails" nillable="true" type="tns:PolicyProfile" />
+      <xs:element minOccurs="0" name="Cholesterol" nillable="true" type="tns:CholesterolProfile" />
+      <xs:element minOccurs="0" name="BloodPressure" nillable="true" type="tns:BloodPressureProfile" />
+      <xs:element minOccurs="0" name="TobaccoUse" nillable="true" type="tns:TobaccoProfile" />
+      <xs:element minOccurs="0" name="MedicalConditions" nillable="true" type="tns:MedicalProfile" />
+      <xs:element minOccurs="0" name="FamilyHistory" nillable="true" type="tns:FamilyProfile" />
+      <xs:element minOccurs="0" name="DrivingHistory" nillable="true" type="tns:DrivingProfile" />
+      <xs:element minOccurs="0" name="HazardousAvocations" nillable="true" type="tns:AvocationProfile" />
+      <xs:element minOccurs="0" name="AlcoholConsumption" nillable="true" type="tns:AlcoholConsumptionProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnderwritingProfile" nillable="true" type="tns:UnderwritingProfile" />
+  <xs:complexType name="DateLongType">
+    <xs:sequence>
+      <xs:element name="Month" type="xs:int" />
+      <xs:element name="Day" type="xs:int" />
+      <xs:element name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DateLongType" nillable="true" type="tns:DateLongType" />
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Gender" nillable="true" type="tns:Gender" />
+  <xs:complexType name="BuildProfile">
+    <xs:sequence>
+      <xs:element name="HeightFeet" nillable="true" type="xs:int" />
+      <xs:element name="HeightInches" nillable="true" type="xs:int" />
+      <xs:element name="WeightPounds" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ChestExceedWaist" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BMI" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BuildProfile" nillable="true" type="tns:BuildProfile" />
+  <xs:complexType name="PolicyProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FaceAmount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductType" nillable="true" type="tns:ProductType" />
+      <xs:element minOccurs="0" name="CriticalIllnessFaceAmount" nillable="true" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TermLengths" nillable="true" type="q2:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PolicyProfile" nillable="true" type="tns:PolicyProfile" />
+  <xs:simpleType name="ProductType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Both" />
+      <xs:enumeration value="Term" />
+      <xs:enumeration value="Perm" />
+      <xs:enumeration value="CriticalIllness" />
+      <xs:enumeration value="LifeCriticalIllness" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ProductType" nillable="true" type="tns:ProductType" />
+  <xs:complexType name="CholesterolProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TotalValue" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="HDLValue" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="LDLValue" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HDLRatio" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="MedicationHistory" nillable="true" type="tns:CholesterolMedication" />
+      <xs:element minOccurs="0" name="EverMedication" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverHypertensionOrHighCholesterol" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CholesterolProfile" nillable="true" type="tns:CholesterolProfile" />
+  <xs:complexType name="CholesterolMedication">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartUseDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LastUseDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CholesterolMedication" nillable="true" type="tns:CholesterolMedication" />
+  <xs:complexType name="DateShortType">
+    <xs:sequence>
+      <xs:element name="Month" type="xs:int" />
+      <xs:element name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DateShortType" nillable="true" type="tns:DateShortType" />
+  <xs:complexType name="BloodPressureProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SystolicCurrent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Systolic12Months" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Systolic24Months" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiastolicCurrent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Diastolic12Months" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Diastolic24Months" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PulsePressure" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EverMedication" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MedicationHistory" nillable="true" type="tns:BloodPressureMedication" />
+      <xs:element minOccurs="0" name="EverDiagnosedWithBloodPressure" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BloodPressureProfile" nillable="true" type="tns:BloodPressureProfile" />
+  <xs:complexType name="BloodPressureMedication">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartUseDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LastUseDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ControlledDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BloodPressureMedication" nillable="true" type="tns:BloodPressureMedication" />
+  <xs:complexType name="TobaccoProfile">
+    <xs:sequence>
+      <xs:element name="EverUse" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NegativeNicotine" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CigaretteUse" nillable="true" type="tns:CigaretteProfile" />
+      <xs:element minOccurs="0" name="CigarUse" nillable="true" type="tns:CigarProfile" />
+      <xs:element minOccurs="0" name="PipeUse" nillable="true" type="tns:PipeProfile" />
+      <xs:element minOccurs="0" name="ChewSnuffUse" nillable="true" type="tns:ChewSnuffProfile" />
+      <xs:element minOccurs="0" name="NicotineGumUse" nillable="true" type="tns:NicotineGumProfile" />
+      <xs:element minOccurs="0" name="NicotinePatchUse" nillable="true" type="tns:NicotinePatchProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TobaccoProfile" nillable="true" type="tns:TobaccoProfile" />
+  <xs:complexType name="CigaretteProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CigarettesPerDay" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastCigaretteDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CigaretteProfile" nillable="true" type="tns:CigaretteProfile" />
+  <xs:complexType name="CigarProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CigarsPerYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastCigarDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="PastPerYear" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CigarProfile" nillable="true" type="tns:CigarProfile" />
+  <xs:complexType name="PipeProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PipesPerYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastPipeDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="PastPerYear" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PipeProfile" nillable="true" type="tns:PipeProfile" />
+  <xs:complexType name="ChewSnuffProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastChewDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChewSnuffProfile" nillable="true" type="tns:ChewSnuffProfile" />
+  <xs:complexType name="NicotineGumProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastGumDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NicotineGumProfile" nillable="true" type="tns:NicotineGumProfile" />
+  <xs:complexType name="NicotinePatchProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastPatchDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NicotinePatchProfile" nillable="true" type="tns:NicotinePatchProfile" />
+  <xs:complexType name="MedicalProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlcoholAbuse" nillable="true" type="tns:AlcoholAbuseProfile" />
+      <xs:element minOccurs="0" name="Alzheimers" nillable="true" type="tns:AlzheimersProfile" />
+      <xs:element minOccurs="0" name="Anxiety" nillable="true" type="tns:AnxietyProfile" />
+      <xs:element minOccurs="0" name="ArthritisGeneral" nillable="true" type="tns:ArthritisGeneralProfile" />
+      <xs:element minOccurs="0" name="ArthritisRheumatoid" nillable="true" type="tns:ArthritisRheumatoidProfile" />
+      <xs:element minOccurs="0" name="Asthma" nillable="true" type="tns:AsthmaProfile" />
+      <xs:element minOccurs="0" name="AtrialFibrillation" nillable="true" type="tns:AtrialFibrillationProfile" />
+      <xs:element minOccurs="0" name="CancerBreast" nillable="true" type="tns:CancerBreastProfile" />
+      <xs:element minOccurs="0" name="CancerColon" nillable="true" type="tns:CancerColonProfile" />
+      <xs:element minOccurs="0" name="CancerLeukemia" nillable="true" type="tns:CancerLeukemiaProfile" />
+      <xs:element minOccurs="0" name="CancerLung" nillable="true" type="tns:CancerLungProfile" />
+      <xs:element minOccurs="0" name="CancerLymphomaH" nillable="true" type="tns:CancerLymphomaHProfile" />
+      <xs:element minOccurs="0" name="CancerLymphomaN" nillable="true" type="tns:CancerLymphomaNProfile" />
+      <xs:element minOccurs="0" name="CancerOvarian" nillable="true" type="tns:CancerOvarianProfile" />
+      <xs:element minOccurs="0" name="CancerProstate" nillable="true" type="tns:CancerProstateProfile" />
+      <xs:element minOccurs="0" name="CancerSkin" nillable="true" type="tns:CancerSkinProfile" />
+      <xs:element minOccurs="0" name="CancerOther" nillable="true" type="tns:CancerOtherProfile" />
+      <xs:element minOccurs="0" name="COPD" nillable="true" type="tns:COPDProfile" />
+      <xs:element minOccurs="0" name="CoronaryArtery" nillable="true" type="tns:CoronaryArteryProfile" />
+      <xs:element minOccurs="0" name="Cerebrovascular" nillable="true" type="tns:CerebrovascularProfile" />
+      <xs:element minOccurs="0" name="Crohns" nillable="true" type="tns:CrohnsProfile" />
+      <xs:element minOccurs="0" name="Depression" nillable="true" type="tns:DepressionProfile" />
+      <xs:element minOccurs="0" name="DiabetesType1" nillable="true" type="tns:DiabetesType1Profile" />
+      <xs:element minOccurs="0" name="DiabetesType2" nillable="true" type="tns:DiabetesType2Profile" />
+      <xs:element minOccurs="0" name="DrugAbuse" nillable="true" type="tns:DrugAbuseProfile" />
+      <xs:element minOccurs="0" name="Epilepsy" nillable="true" type="tns:EpilepsyProfile" />
+      <xs:element minOccurs="0" name="HeartMurmur" nillable="true" type="tns:HeartMurmurProfile" />
+      <xs:element minOccurs="0" name="HepatitisTypeA" nillable="true" type="tns:HepatitisAProfile" />
+      <xs:element minOccurs="0" name="HepatitisTypeB" nillable="true" type="tns:HepatitisBProfile" />
+      <xs:element minOccurs="0" name="HepatitisTypeC" nillable="true" type="tns:HepatitisCProfile" />
+      <xs:element minOccurs="0" name="IrregularHeartbeat" nillable="true" type="tns:IrregularHeartbeatProfile" />
+      <xs:element minOccurs="0" name="KidneyDisease" nillable="true" type="tns:KidneyDiseaseProfile" />
+      <xs:element minOccurs="0" name="Lupus" nillable="true" type="tns:LupusProfile" />
+      <xs:element minOccurs="0" name="Cirrhosis" nillable="true" type="tns:CirrhosisProfile" />
+      <xs:element minOccurs="0" name="LiverFunction" nillable="true" type="tns:LiverFunctionProfile" />
+      <xs:element minOccurs="0" name="MultipleSclerosis" nillable="true" type="tns:MultipleSclerosisProfile" />
+      <xs:element minOccurs="0" name="Parkinsons" nillable="true" type="tns:ParkinsonsProfile" />
+      <xs:element minOccurs="0" name="PeripheralVascular" nillable="true" type="tns:PeripheralVascularProfile" />
+      <xs:element minOccurs="0" name="SleepApnea" nillable="true" type="tns:SleepApneaProfile" />
+      <xs:element minOccurs="0" name="Stroke" nillable="true" type="tns:StrokeProfile" />
+      <xs:element minOccurs="0" name="WeightReduction" nillable="true" type="tns:WeightReductionProfile" />
+      <xs:element minOccurs="0" name="OtherCondition" nillable="true" type="tns:OtherConditionProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MedicalProfile" nillable="true" type="tns:MedicalProfile" />
+  <xs:complexType name="AlcoholAbuseProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CurrentlyConsuming" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastConsumedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EverTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TreatmentEndDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EverRelapse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RelapseDates" nillable="true" type="tns:ArrayOfDateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlcoholAbuseProfile" nillable="true" type="tns:AlcoholAbuseProfile" />
+  <xs:complexType name="ArrayOfDateShortType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DateShortType" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDateShortType" nillable="true" type="tns:ArrayOfDateShortType" />
+  <xs:complexType name="AlzheimersProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LiveIndependently" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsStable" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlzheimersProfile" nillable="true" type="tns:AlzheimersProfile" />
+  <xs:simpleType name="ConditionDegree">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mild" />
+      <xs:enumeration value="Moderate" />
+      <xs:enumeration value="Severe" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+  <xs:complexType name="AnxietyProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EverHospitalized" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastHospitalizedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EpisodesYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MedicationCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OutpatientCare" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InpatientCare" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WorkAbsence" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AbsenceCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EverSuicideAttempt" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SuicideAttemptDates" nillable="true" type="tns:ArrayOfDateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnxietyProfile" nillable="true" type="tns:AnxietyProfile" />
+  <xs:complexType name="ArthritisGeneralProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArthritisGeneralProfile" nillable="true" type="tns:ArthritisGeneralProfile" />
+  <xs:complexType name="ArthritisRheumatoidProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EverSuppressants" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentSuppressants" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverPrednisone" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentPrednisone" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverImmunosuppressants" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GoodTreatmentResponse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Complications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverSurgery" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Disabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyImmunosuppressants" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArthritisRheumatoidProfile" nillable="true" type="tns:ArthritisRheumatoidProfile" />
+  <xs:complexType name="AsthmaProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EverTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverHospitalized" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HospitalizedCountPastYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastHospitalizedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EpisodesYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="WorkAbsence" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AbsenceCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FEV1" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EverLifeThreatening" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LifeThreateningDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="IsTreatmentCompliant" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HospitalizedCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Asthmatreatmenttypes" nillable="true" type="tns:AsthmaTreatmentTypes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AsthmaProfile" nillable="true" type="tns:AsthmaProfile" />
+  <xs:complexType name="AsthmaTreatmentTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Inhaledbronchodilators" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Inhaledcorticosteroids" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OralmedicationNosteroids" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OralmedicationSteroids" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Rescueinhaler" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AsthmaTreatmentTypes" nillable="true" type="tns:AsthmaTreatmentTypes" />
+  <xs:complexType name="AtrialFibrillationProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EpisodeDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="IsParoxysmal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsChronic" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EpisodeLength" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SelfResolve" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverCardiacEval" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CardiacEvalDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CardiacEvalResult" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HeartDisease" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShortnessOfBreath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentMedications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AblationProcedure" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AblationDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="AblationEpisodes" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsControlled" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AtrialFibrillationProfile" nillable="true" type="tns:AtrialFibrillationProfile" />
+  <xs:complexType name="CancerBreastProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="NodeCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TumorSize" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastMammogramDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CurrentlyTreating" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DuctalCarcinoma" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LobularCarcinoma" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DiagnosedDCIS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DCISRemoved" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NumberofLesions" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LesionSize" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Comedonecrosis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DiagnosedLCIS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Lumpectomy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Mastectomy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SingleMastectomy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DoubleMastectomy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NegativeSentinelLymphExam" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RadiationTreatment" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndocrineTherapy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndocrineTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CancerGrade" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerBreastProfile" nillable="true" type="tns:CancerBreastProfile" />
+  <xs:complexType name="CancerColonProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NodeCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerColonProfile" nillable="true" type="tns:CancerColonProfile" />
+  <xs:complexType name="CancerLeukemiaProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="NodeCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerLeukemiaProfile" nillable="true" type="tns:CancerLeukemiaProfile" />
+  <xs:complexType name="CancerLungProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NodeCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerLungProfile" nillable="true" type="tns:CancerLungProfile" />
+  <xs:complexType name="CancerLymphomaHProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentSymptoms" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NodeCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DiaphragmBoth" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerLymphomaHProfile" nillable="true" type="tns:CancerLymphomaHProfile" />
+  <xs:complexType name="CancerLymphomaNProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsLowGrade" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHighGrade" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerLymphomaNProfile" nillable="true" type="tns:CancerLymphomaNProfile" />
+  <xs:complexType name="CancerOvarianProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerOvarianProfile" nillable="true" type="tns:CancerOvarianProfile" />
+  <xs:complexType name="CancerProstateProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Prostatectomy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProstatectomyDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Radiation" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RadiationCurrently" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WatchfulWaiting" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GleasonScore" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PrePSA" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="PostPSA" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LymphNodeInvolvement" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerProstateProfile" nillable="true" type="tns:CancerProstateProfile" />
+  <xs:complexType name="CancerSkinProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CancerStage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BasalCellCarcinoma" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMelanoma" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MelanomaThickness" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="MelanomaClarkLevel" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MelanomaUlceration" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MelanomaNevi" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Metastasis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Reoccurrence" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerSkinProfile" nillable="true" type="tns:CancerSkinProfile" />
+  <xs:complexType name="CancerOtherProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancerOtherProfile" nillable="true" type="tns:CancerOtherProfile" />
+  <xs:complexType name="COPDProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="FEV1" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HasSymptoms" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="COPDSeverity" nillable="true" type="tns:ConditionDegree" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="COPDProfile" nillable="true" type="tns:COPDProfile" />
+  <xs:complexType name="CoronaryArteryProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EjectionFraction" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="VesselCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StabilizationDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LastTestDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="MyocardialInfarction" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HeartAttackDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="Angiography" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Angioplasty" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AngioplastyProcedureDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ChestPainSinceSurgery" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RightCoronaryArtery" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PercentRCABlockage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LeftCircumflexInvolved" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PercentLCXBlockage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LeftAnteriorDescendingArtery" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PercentLADBlockage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LeftMainCoronaryArteryInvolved" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PercentLMCABlockage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastCardiologistFollowupDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="NormalLeftVentricularFunction" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CoronaryArteryProfile" nillable="true" type="tns:CoronaryArteryProfile" />
+  <xs:complexType name="CerebrovascularProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirstEventDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="MultipleEvents" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastEventDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CerebrovascularProfile" nillable="true" type="tns:CerebrovascularProfile" />
+  <xs:complexType name="CrohnsProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="StabilizationDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LastAttackDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EverSteriods" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlySteriods" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverImmunoSuppressants" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentImmunoSuppressants" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SteroidStopDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ImmunosuppressantsStopDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LimitedToColon" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Complications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Surgery" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SurgeryDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="WeightStable" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CrohnsProfile" nillable="true" type="tns:CrohnsProfile" />
+  <xs:complexType name="DepressionProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EverHospitalized" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastHospitalizedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MedicationCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="InPsychotherapy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RespondingWell" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="TreatmentCompleted" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WorkAbsence" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AbsenceCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EverSuicideAttempt" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SuicideAttemptDates" nillable="true" type="tns:ArrayOfDateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DepressionProfile" nillable="true" type="tns:DepressionProfile" />
+  <xs:complexType name="DiabetesType1Profile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LastA1C" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="AverageA1C" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Complications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="InsulinUnits" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiabetesType1Profile" nillable="true" type="tns:DiabetesType1Profile" />
+  <xs:complexType name="DiabetesType2Profile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LastA1C" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="AverageA1C" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Complications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTreatmentDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="IsGestational" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InsulinUnits" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiabetesType2Profile" nillable="true" type="tns:DiabetesType2Profile" />
+  <xs:complexType name="DrugAbuseProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CurrentlyUsing" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastUsedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EverTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TreatmentEndDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EverRelapse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RelapseDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="EverConvicted" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrugAbuseProfile" nillable="true" type="tns:DrugAbuseProfile" />
+  <xs:complexType name="EpilepsyProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EverTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverMedication" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SurgeryDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ControlledSeizures" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NeurologicalEvaluation" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NeurologicalNormal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PetitMal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GrandMal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CausedByOther" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastSeizureDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="SeizuresPerYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Myolconic" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Atonic" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SimplePartial" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ComplexPartial" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Febrile" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Reflex" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nocturnal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ThirtyMinutePlus" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverSurgery" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EpilepsyProfile" nillable="true" type="tns:EpilepsyProfile" />
+  <xs:complexType name="HeartMurmurProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EverEchocardiogram" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ValveStructuresNormal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HeartEnlargement" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Symptomatic" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Progression" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ValveSurgery" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HeartMurmurProfile" nillable="true" type="tns:HeartMurmurProfile" />
+  <xs:complexType name="HepatitisAProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="NormalLiverEnzymes" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsResolved" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResolvedDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HepatitisAProfile" nillable="true" type="tns:HepatitisAProfile" />
+  <xs:complexType name="HepatitisBProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="IsAcute" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsChronic" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NormalViralLoads" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NormalViralDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="NormalLiverFunctions" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NormalLiverDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EverTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TreatmentEndDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LiverCirrhosis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentSymptoms" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HepatitisBProfile" nillable="true" type="tns:HepatitisBProfile" />
+  <xs:complexType name="HepatitisCProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ContractionDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="NormalViralLoads" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NormalViralDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="NormalLiverFunctions" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NormalLiverDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="EverTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TreatmentStartDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="TreatmentEndDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="LiverCirrhosis" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LiverBiopsy" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HepatitisCProfile" nillable="true" type="tns:HepatitisCProfile" />
+  <xs:complexType name="IrregularHeartbeatProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="UnderlyingHeartDisease" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentSymptoms" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentMedications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MedicationCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AtrioventricularBlock" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SecondDegreeAVBlock" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MobitzType1Block" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MobitzType2Block" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ThirdDegreeAVBlockAtrDisassociation" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BornWithThirdDegreeAVBlock" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PaceMakerImplanted" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PacemakerImplantDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="AtrioventricularJunctionalRhythm" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ParoxysmalSuperTachycardia" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CardiacEvaluations" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CardiacEvalResultNormal" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastExperienceSymptoms" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="SymtomsPerYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PrematureAtrialComplexes" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HistoryOfCardiovascularDisease" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PrematureVentricularContraction" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SickSinusSyndrome" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PacemakerForSickSinusSyndrome" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PacemakerForSickSinusSyndromeImplantDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="HistoryOfFainting" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SinusBradycardia" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PulseRate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SinusBradycardiaCausedByAnotherCondition" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SinusBradycardiaCausedByMedication" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SinusBradycardiaCauseUnknown" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WanderingPacemaker" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CardiaEvalForWanderingPeacemaker" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IdioventricularRhythm" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SimplePVC" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ComplexPVC" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RequireTreatmentForPVC" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IrregularHeartbeatProfile" nillable="true" type="tns:IrregularHeartbeatProfile" />
+  <xs:complexType name="KidneyDiseaseProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CreatinineReading" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="IsStable" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KidneyDiseaseProfile" nillable="true" type="tns:KidneyDiseaseProfile" />
+  <xs:complexType name="LupusProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LupusProfile" nillable="true" type="tns:LupusProfile" />
+  <xs:complexType name="CirrhosisProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CirrhosisProfile" nillable="true" type="tns:CirrhosisProfile" />
+  <xs:complexType name="LiverFunctionProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ALT" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AST" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GGTP" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsStable" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsHepatitisNegative" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCDTNegative" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LiverFunctionProfile" nillable="true" type="tns:LiverFunctionProfile" />
+  <xs:complexType name="MultipleSclerosisProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="AttacksPerYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastAttackDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionType" nillable="true" type="tns:MultipleSclerosisType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultipleSclerosisProfile" nillable="true" type="tns:MultipleSclerosisProfile" />
+  <xs:simpleType name="MultipleSclerosisType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PrimaryProgressive" />
+      <xs:enumeration value="SecondaryProgressive" />
+      <xs:enumeration value="ProgressiveRelapsing" />
+      <xs:enumeration value="RelapseRemitting" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MultipleSclerosisType" nillable="true" type="tns:MultipleSclerosisType" />
+  <xs:complexType name="ParkinsonsProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="LiveIndependently" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ConditionStable" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlyDisabled" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DisabilitySeverity" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="CurrentlyReceiveTreatment" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Rigidity" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RigiditySeverity" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="StableDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="WalkingImpairment" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WalkingImpairmentSeverity" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="MentalDeterioration" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AgeAtDiagnosis" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AffectFingersOnly" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AffectHandsOnly" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AffectMultipleAreas" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParkinsonsProfile" nillable="true" type="tns:ParkinsonsProfile" />
+  <xs:complexType name="PeripheralVascularProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="NormalABI" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PeripheralVascularProfile" nillable="true" type="tns:PeripheralVascularProfile" />
+  <xs:complexType name="SleepApneaProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="EverTreated" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TreatmentStartDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="CurrentSymptoms" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UseCPAP" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RDIndex" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ApneaIndex" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AHIndex" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="O2Saturation" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CPAPMachineComplaint" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CurrentlySleepApnea" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SleepStudy" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SleepStudyFollowup" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OnOxygen" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SleepApneaProfile" nillable="true" type="tns:SleepApneaProfile" />
+  <xs:complexType name="StrokeProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConditionDegree" nillable="true" type="tns:ConditionDegree" />
+      <xs:element minOccurs="0" name="LastStrokeDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="MultipleStrokes" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FirstStrokeAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StrokeProfile" nillable="true" type="tns:StrokeProfile" />
+  <xs:complexType name="WeightReductionProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProcedureDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="PriorWeight" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentWeightDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="AnyComplications" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverGastricBanding" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverGastroplasty" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverGastricBypassProcedure" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverBiliopancreaticDiversionProcedure" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverJejuonilealBypass" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EverDuodenalSwitch" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HeightFeet" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HeightInches" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeightReductionProfile" nillable="true" type="tns:WeightReductionProfile" />
+  <xs:complexType name="OtherConditionProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OtherConditionNotes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OtherConditionProfile" nillable="true" type="tns:OtherConditionProfile" />
+  <xs:complexType name="FamilyProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FatherConditionHistory" nillable="true" type="tns:FatherProfile" />
+      <xs:element minOccurs="0" name="MotherConditionHistory" nillable="true" type="tns:MotherProfile" />
+      <xs:element minOccurs="0" name="BrotherConditionHistory" nillable="true" type="tns:BrotherProfile" />
+      <xs:element minOccurs="0" name="SisterConditionHistory" nillable="true" type="tns:SisterProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FamilyProfile" nillable="true" type="tns:FamilyProfile" />
+  <xs:complexType name="FatherProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancer" nillable="true" type="tns:FatherCancerProfile" />
+      <xs:element minOccurs="0" name="Cardiovascular" nillable="true" type="tns:FatherCardiovascularProfile" />
+      <xs:element minOccurs="0" name="Diabetes" nillable="true" type="tns:FatherDiabetesProfile" />
+      <xs:element minOccurs="0" name="Stroke" nillable="true" type="tns:FatherStrokeProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FatherProfile" nillable="true" type="tns:FatherProfile" />
+  <xs:complexType name="FatherCancerProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CancerDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProstateCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TesticularCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ColonCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MelanomaCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PancreaticCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StomachCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherCancer" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FatherCancerProfile" nillable="true" type="tns:FatherCancerProfile" />
+  <xs:complexType name="FatherCardiovascularProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CardiovascularDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FatherCardiovascularProfile" nillable="true" type="tns:FatherCardiovascularProfile" />
+  <xs:complexType name="FatherDiabetesProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiabetesDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FatherDiabetesProfile" nillable="true" type="tns:FatherDiabetesProfile" />
+  <xs:complexType name="FatherStrokeProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StrokeDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FatherStrokeProfile" nillable="true" type="tns:FatherStrokeProfile" />
+  <xs:complexType name="MotherProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancer" nillable="true" type="tns:MotherCancerProfile" />
+      <xs:element minOccurs="0" name="Cardiovascular" nillable="true" type="tns:MotherCardiovascularProfile" />
+      <xs:element minOccurs="0" name="Diabetes" nillable="true" type="tns:MotherDiabetesProfile" />
+      <xs:element minOccurs="0" name="Stroke" nillable="true" type="tns:MotherStrokeProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MotherProfile" nillable="true" type="tns:MotherProfile" />
+  <xs:complexType name="MotherCancerProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CancerDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BreastCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CervicalCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndometrialCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FallopianTubeCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OvarianTubeCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VaginalCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VulvarCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ColonCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MelanomaCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PancreaticCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StomachCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherCancer" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MotherCancerProfile" nillable="true" type="tns:MotherCancerProfile" />
+  <xs:complexType name="MotherCardiovascularProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CardiovascularDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MotherCardiovascularProfile" nillable="true" type="tns:MotherCardiovascularProfile" />
+  <xs:complexType name="MotherDiabetesProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiabetesDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MotherDiabetesProfile" nillable="true" type="tns:MotherDiabetesProfile" />
+  <xs:complexType name="MotherStrokeProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StrokeDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MotherStrokeProfile" nillable="true" type="tns:MotherStrokeProfile" />
+  <xs:complexType name="BrotherProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancer" nillable="true" type="tns:BrotherCancerProfile" />
+      <xs:element minOccurs="0" name="Cardiovascular" nillable="true" type="tns:BrotherCardiovascularProfile" />
+      <xs:element minOccurs="0" name="Diabetes" nillable="true" type="tns:BrotherDiabetesProfile" />
+      <xs:element minOccurs="0" name="Stroke" nillable="true" type="tns:BrotherStrokeProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrotherProfile" nillable="true" type="tns:BrotherProfile" />
+  <xs:complexType name="BrotherCancerProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CancerDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProstateCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TesticularCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ColonCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MelanomaCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PancreaticCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StomachCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherCancer" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrotherCancerProfile" nillable="true" type="tns:BrotherCancerProfile" />
+  <xs:complexType name="BrotherCardiovascularProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CardiovascularDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrotherCardiovascularProfile" nillable="true" type="tns:BrotherCardiovascularProfile" />
+  <xs:complexType name="BrotherDiabetesProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiabetesDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrotherDiabetesProfile" nillable="true" type="tns:BrotherDiabetesProfile" />
+  <xs:complexType name="BrotherStrokeProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StrokeDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BrotherStrokeProfile" nillable="true" type="tns:BrotherStrokeProfile" />
+  <xs:complexType name="SisterProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancer" nillable="true" type="tns:SisterCancerProfile" />
+      <xs:element minOccurs="0" name="Cardiovascular" nillable="true" type="tns:SisterCardiovascularProfile" />
+      <xs:element minOccurs="0" name="Diabetes" nillable="true" type="tns:SisterDiabetesProfile" />
+      <xs:element minOccurs="0" name="Stroke" nillable="true" type="tns:SisterStrokeProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SisterProfile" nillable="true" type="tns:SisterProfile" />
+  <xs:complexType name="SisterCancerProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CancerDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BreastCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CervicalCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndometrialCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FallopianTubeCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OvarianTubeCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VaginalCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VulvarCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ColonCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MelanomaCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PancreaticCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StomachCancer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherCancer" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SisterCancerProfile" nillable="true" type="tns:SisterCancerProfile" />
+  <xs:complexType name="SisterCardiovascularProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CardiovascularDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SisterCardiovascularProfile" nillable="true" type="tns:SisterCardiovascularProfile" />
+  <xs:complexType name="SisterDiabetesProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DiabetesDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SisterDiabetesProfile" nillable="true" type="tns:SisterDiabetesProfile" />
+  <xs:complexType name="SisterStrokeProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiagnosedAge" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StrokeDeath" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DeathAge" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SisterStrokeProfile" nillable="true" type="tns:SisterStrokeProfile" />
+  <xs:complexType name="DrivingProfile">
+    <xs:sequence>
+      <xs:element name="ConvictionExists" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MovingViolationDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="RecklessDrivingDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="DrunkDrivingDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="LicenseSuspensionDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="LicenseCurrentlyRevoked" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherMVDates" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="ResponsibleForAccident" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotorVehicleAccidentDates" nillable="true" type="tns:ArrayOfDateShortType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrivingProfile" nillable="true" type="tns:DrivingProfile" />
+  <xs:complexType name="AvocationProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aviation" nillable="true" type="tns:AviationProfile" />
+      <xs:element minOccurs="0" name="Climbing" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Gliding" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MotorSport" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Parachuting" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ScubaDiving" nillable="true" type="tns:DivingProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvocationProfile" nillable="true" type="tns:AvocationProfile" />
+  <xs:complexType name="AviationProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyParticipate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AviationTypes" nillable="true" type="tns:AviationTypes" />
+      <xs:element minOccurs="0" name="AviationCertificates" nillable="true" type="tns:AviationCertificates" />
+      <xs:element minOccurs="0" name="AviationViolations" nillable="true" type="tns:ArrayOfDateShortType" />
+      <xs:element minOccurs="0" name="LastFlyDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="AviationCapacities" nillable="true" type="tns:AviationCapacities" />
+      <xs:element minOccurs="0" name="TotalHoursFlownCommercial" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalHoursCommercialNext12Months" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FlyOutSideOfUSCommercial" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TotalHoursFlownPrivate" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HoursFlownPrivateAnnually" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FlyOutSideOfUSPrivate" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlyOutSideOfUSCorporate" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MaintenanceStandardCommercial" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlyStartDate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="HoursFlownInPrimaryAircraft" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FixedWingAircraft" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RotorcraftGlider" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AviationProfile" nillable="true" type="tns:AviationProfile" />
+  <xs:complexType name="AviationTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CommercialPilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PrivatePilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CorporatePilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Others" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AviationTypes" nillable="true" type="tns:AviationTypes" />
+  <xs:complexType name="AviationCertificates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AirlineTransport" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CommericalPilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlightInstruction" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InstrumentFlightRating" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PrivatePilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StudentPilot" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AviationCertificates" nillable="true" type="tns:AviationCertificates" />
+  <xs:complexType name="AviationCapacities">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AerialPhotography" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AirlineCrew" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ArmedServices" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CommercialPilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ConstructionWork" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CropSpraying" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FlightInstruction" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HelicopterCrew" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PoliceWork" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PrivatePilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SurveyWork" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TestPilot" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CorporatePilot" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AviationCapacities" nillable="true" type="tns:AviationCapacities" />
+  <xs:complexType name="DivingProfile">
+    <xs:sequence>
+      <xs:element name="CurrentlyParticipate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastParticipate" nillable="true" type="tns:DateShortType" />
+      <xs:element minOccurs="0" name="AverageDepth" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DeepestDive" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DivesPerYear" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DivingTypes" nillable="true" type="tns:DivingTypes" />
+      <xs:element minOccurs="0" name="DivingCertificates" nillable="true" type="tns:DivingCertificates" />
+      <xs:element minOccurs="0" name="DivingAssociations" nillable="true" type="tns:DivingAssociations" />
+      <xs:element minOccurs="0" name="DivingCapacities" nillable="true" type="tns:DivingCapacities" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DivingProfile" nillable="true" type="tns:DivingProfile" />
+  <xs:complexType name="DivingTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PleasureDiving" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DivingTypes" nillable="true" type="tns:DivingTypes" />
+  <xs:complexType name="DivingCertificates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BasicCertification" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OpenWaterCertification" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DivingCertificates" nillable="true" type="tns:DivingCertificates" />
+  <xs:complexType name="DivingAssociations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PADI" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NAUI" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NASDS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="YMCA" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DivingAssociations" nillable="true" type="tns:DivingAssociations" />
+  <xs:complexType name="DivingCapacities">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PleasureDiving" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WreckDiving" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TreausreDiving" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IceDiving" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DepthRecordAttempts" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DivingCapacities" nillable="true" type="tns:DivingCapacities" />
+  <xs:complexType name="AlcoholConsumptionProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AverageUnitsDrinkPerWeek" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EverSoughtTreatment" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlcoholConsumptionProfile" nillable="true" type="tns:AlcoholConsumptionProfile" />
+  <xs:element name="AddCaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCaseResult" nillable="true" type="tns:AddCaseResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AddCaseResult">
+    <xs:sequence>
+      <xs:element name="Completed" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+      <xs:element name="CaseKey" nillable="true" type="xs:string" />
+      <xs:element name="CaseUrl" nillable="true" type="xs:string" />
+      <xs:element name="AccountName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddCaseResult" nillable="true" type="tns:AddCaseResult" />
+  <xs:element name="UpdateCase">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:UpdateCaseRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UpdateCaseRequest">
+    <xs:sequence>
+      <xs:element name="CaseKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubjectProfile" nillable="true" type="tns:UnderwritingProfile" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Xrae.Service.Direct.Types.Enums" minOccurs="0" name="StateOfIssue" nillable="true" type="q3:StateAbbreviation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateCaseRequest" nillable="true" type="tns:UpdateCaseRequest" />
+  <xs:element name="UpdateCaseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCaseResult" nillable="true" type="tns:UpdateCaseResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UpdateCaseResult">
+    <xs:sequence>
+      <xs:element name="Completed" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateCaseResult" nillable="true" type="tns:UpdateCaseResult" />
+  <xs:element name="GetCaseByKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseByKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseByKeyResult" nillable="true" type="tns:GetCaseResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetCaseResult">
+    <xs:sequence>
+      <xs:element name="HasResult" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+      <xs:element name="Case" nillable="true" type="tns:CaseProfile" />
+      <xs:element name="CaseUrl" nillable="true" type="xs:string" />
+      <xs:element name="AccountName" nillable="true" type="xs:string" />
+      <xs:element name="Answers" nillable="true" type="tns:ArrayOfAnswerProfile" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCaseResult" nillable="true" type="tns:GetCaseResult" />
+  <xs:complexType name="CaseProfile">
+    <xs:sequence>
+      <xs:element name="CaseKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubjectProfile" nillable="true" type="tns:UnderwritingProfile" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Xrae.Service.Direct.Types.Enums" minOccurs="0" name="StateOfIssue" nillable="true" type="q4:StateAbbreviation" />
+      <xs:element minOccurs="0" name="UserKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaseProfile" nillable="true" type="tns:CaseProfile" />
+  <xs:complexType name="ArrayOfAnswerProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnswerProfile" nillable="true" type="tns:AnswerProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnswerProfile" nillable="true" type="tns:ArrayOfAnswerProfile" />
+  <xs:complexType name="AnswerProfile">
+    <xs:sequence>
+      <xs:element name="QuestionId" type="xs:int" />
+      <xs:element name="QuestionText" nillable="true" type="xs:string" />
+      <xs:element name="AnswerText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnswerProfile" nillable="true" type="tns:AnswerProfile" />
+  <xs:element name="GetCasesByClientName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:GetCasesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetCasesRequest">
+    <xs:sequence>
+      <xs:element name="AccountKey" nillable="true" type="xs:string" />
+      <xs:element name="QueryValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCasesRequest" nillable="true" type="tns:GetCasesRequest" />
+  <xs:element name="GetCasesByClientNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCasesByClientNameResult" nillable="true" type="tns:GetCasesResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetCasesResult">
+    <xs:sequence>
+      <xs:element name="HasResults" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+      <xs:element name="Cases" nillable="true" type="tns:ArrayOfCaseProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCasesResult" nillable="true" type="tns:GetCasesResult" />
+  <xs:complexType name="ArrayOfCaseProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaseProfile" nillable="true" type="tns:CaseProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaseProfile" nillable="true" type="tns:ArrayOfCaseProfile" />
+  <xs:element name="GetCaseUnderwriting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseUnderwritingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseUnderwritingResult" nillable="true" type="tns:GetUnderwritingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetUnderwritingResult">
+    <xs:sequence>
+      <xs:element name="HasResults" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+      <xs:element name="UnderwritingResults" nillable="true" type="tns:ArrayOfCarrierUnderwritingResult" />
+      <xs:element name="ProductType" type="tns:ProductType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUnderwritingResult" nillable="true" type="tns:GetUnderwritingResult" />
+  <xs:complexType name="ArrayOfCarrierUnderwritingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarrierUnderwritingResult" nillable="true" type="tns:CarrierUnderwritingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarrierUnderwritingResult" nillable="true" type="tns:ArrayOfCarrierUnderwritingResult" />
+  <xs:complexType name="CarrierUnderwritingResult">
+    <xs:sequence>
+      <xs:element name="CarrierCode" nillable="true" type="xs:string" />
+      <xs:element name="CarrierName" nillable="true" type="xs:string" />
+      <xs:element name="NAIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductType" type="tns:ProductType" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnderwritingClass" type="tns:UnderwritingClass" />
+      <xs:element minOccurs="0" name="IsTobacco" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TableRating" type="xs:int" />
+      <xs:element minOccurs="0" name="SortingRank" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierUnderwritingResult" nillable="true" type="tns:CarrierUnderwritingResult" />
+  <xs:simpleType name="UnderwritingClass">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Execption">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Declined">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="QuickQuote">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SuperPreferred">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Preferred">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="StandardPlus">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UnderwritingClass" nillable="true" type="tns:UnderwritingClass" />
+  <xs:element name="GetCaseUnderwritingUI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseUnderwritingUIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseUnderwritingUIResult" nillable="true" type="tns:GetUnderwritingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuickUnderwriting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="accountKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subjectProfile" nillable="true" type="tns:UnderwritingProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuickUnderwritingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQuickUnderwritingResult" nillable="true" type="tns:GetUnderwritingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuickUnderwritingUI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="accountKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subjectProfile" nillable="true" type="tns:UnderwritingProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuickUnderwritingUIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQuickUnderwritingUIResult" nillable="true" type="tns:GetUnderwritingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuickTermPricingForCarriers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:GetTermPricingRequest" />
+        <xs:element minOccurs="0" name="carriers" nillable="true" type="tns:GetPricingRequestCarriers" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetTermPricingRequest">
+    <xs:sequence>
+      <xs:element name="AccountKey" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Xrae.Service.Direct.Types.Enums" name="StateOfIssue" nillable="true" type="q5:StateAbbreviation" />
+      <xs:element name="SubjectProfile" nillable="true" type="tns:UnderwritingProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTermPricingRequest" nillable="true" type="tns:GetTermPricingRequest" />
+  <xs:complexType name="GetPricingRequestCarriers">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Carriers" nillable="true" type="q6:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPricingRequestCarriers" nillable="true" type="tns:GetPricingRequestCarriers" />
+  <xs:element name="GetQuickTermPricingForCarriersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQuickTermPricingForCarriersResult" nillable="true" type="tns:GetTermPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetTermPricingResult">
+    <xs:sequence>
+      <xs:element name="HasResults" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+      <xs:element name="PricingResults" nillable="true" type="tns:ArrayOfTermPricingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTermPricingResult" nillable="true" type="tns:GetTermPricingResult" />
+  <xs:complexType name="ArrayOfTermPricingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TermPricingResult" nillable="true" type="tns:TermPricingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTermPricingResult" nillable="true" type="tns:ArrayOfTermPricingResult" />
+  <xs:complexType name="TermPricingResult">
+    <xs:sequence>
+      <xs:element name="CarrierCode" nillable="true" type="xs:string" />
+      <xs:element name="CarrierName" nillable="true" type="xs:string" />
+      <xs:element name="NAIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnderwritingClass" type="tns:UnderwritingClass" />
+      <xs:element minOccurs="0" name="IsTobacco" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TableRating" type="xs:int" />
+      <xs:element minOccurs="0" name="TermYears" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsROP" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ModalAnnual" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModalSemi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModalQuarterly" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModalMonthly" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TermPricingResult" nillable="true" type="tns:TermPricingResult" />
+  <xs:element name="GetCaseTermPricingForCarriers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="carriers" nillable="true" type="tns:GetPricingRequestCarriers" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseTermPricingForCarriersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseTermPricingForCarriersResult" nillable="true" type="tns:GetTermPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseULPricingForCarriers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:GetULPricingRequest" />
+        <xs:element minOccurs="0" name="carriers" nillable="true" type="tns:GetPricingRequestCarriers" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetULPricingRequest">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Xrae.Pricing.VitalTerm.IO.VitalUL" name="SortType" type="q7:UL_SortType" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Xrae.Pricing.VitalTerm.IO.VitalUL" name="PaymentMode" type="q8:UL_PaymentMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetULPricingRequest" nillable="true" type="tns:GetULPricingRequest" />
+  <xs:element name="GetCaseULPricingForCarriersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseULPricingForCarriersResult" nillable="true" type="tns:GetULPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GetULPricingResult">
+    <xs:sequence>
+      <xs:element name="HasResults" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+      <xs:element name="PricingResults" nillable="true" type="tns:ArrayOfULPricingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetULPricingResult" nillable="true" type="tns:GetULPricingResult" />
+  <xs:complexType name="ArrayOfULPricingResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ULPricingResult" nillable="true" type="tns:ULPricingResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfULPricingResult" nillable="true" type="tns:ArrayOfULPricingResult" />
+  <xs:complexType name="ULPricingResult">
+    <xs:sequence>
+      <xs:element name="Code" nillable="true" type="xs:string" />
+      <xs:element name="ProductName" nillable="true" type="xs:string" />
+      <xs:element name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element name="CompanyNAIC" nillable="true" type="xs:string" />
+      <xs:element name="CompanyAddress" nillable="true" type="xs:string" />
+      <xs:element name="CompanyCityState" nillable="true" type="xs:string" />
+      <xs:element name="CompanyURL" nillable="true" type="xs:string" />
+      <xs:element name="CompanyYearFounded" nillable="true" type="xs:string" />
+      <xs:element name="CompanyType" nillable="true" type="xs:string" />
+      <xs:element name="CompanyAssets" nillable="true" type="xs:string" />
+      <xs:element name="ClassTranslation" nillable="true" type="xs:string" />
+      <xs:element name="NextClassTranslation" nillable="true" type="xs:string" />
+      <xs:element name="PolicyFee" nillable="true" type="xs:string" />
+      <xs:element name="GuaranteeLevel" nillable="true" type="xs:string" />
+      <xs:element name="AgeDetermination" nillable="true" type="xs:string" />
+      <xs:element name="RidersAvailable" nillable="true" type="tns:ULRidersAvailable" />
+      <xs:element name="MinIssueAge" nillable="true" type="xs:string" />
+      <xs:element name="MaxIssueAge" nillable="true" type="xs:string" />
+      <xs:element name="MaturityAge" nillable="true" type="xs:string" />
+      <xs:element name="MinFace" nillable="true" type="xs:string" />
+      <xs:element name="MaxFace" nillable="true" type="xs:string" />
+      <xs:element name="MinPremium" nillable="true" type="xs:string" />
+      <xs:element name="MaxPremium" nillable="true" type="xs:string" />
+      <xs:element name="MinWaiverAge" nillable="true" type="xs:string" />
+      <xs:element name="MaxWaiverAge" nillable="true" type="xs:string" />
+      <xs:element name="AttainedWaiverAge" nillable="true" type="xs:string" />
+      <xs:element name="MaxWaiverFace" nillable="true" type="xs:string" />
+      <xs:element name="MinChildAge" nillable="true" type="xs:string" />
+      <xs:element name="MaxChildAge" nillable="true" type="xs:string" />
+      <xs:element name="MinChildInsuredAge" nillable="true" type="xs:string" />
+      <xs:element name="MaxChildInsuredAge" nillable="true" type="xs:string" />
+      <xs:element name="MinChildUnits" nillable="true" type="xs:string" />
+      <xs:element name="MaxChildUnits" nillable="true" type="xs:string" />
+      <xs:element name="ChildAttainedAge" nillable="true" type="xs:string" />
+      <xs:element name="ChildInsuredAttainedAge" nillable="true" type="xs:string" />
+      <xs:element name="ChildBaseUnits" nillable="true" type="xs:string" />
+      <xs:element name="ChildBaseAmount" nillable="true" type="xs:string" />
+      <xs:element name="ChildCalcedUnits" nillable="true" type="xs:string" />
+      <xs:element name="GuarInterestRate" nillable="true" type="xs:string" />
+      <xs:element name="LoanRate" nillable="true" type="xs:string" />
+      <xs:element name="MaxLoanRate" nillable="true" type="xs:string" />
+      <xs:element name="InterestPolicyLoans" nillable="true" type="xs:string" />
+      <xs:element name="LoadsFees" nillable="true" type="xs:string" />
+      <xs:element name="SurrenderCharges" nillable="true" type="xs:string" />
+      <xs:element name="MaxComPremium" nillable="true" type="xs:string" />
+      <xs:element name="SandP" nillable="true" type="xs:string" />
+      <xs:element name="Moodys" nillable="true" type="xs:string" />
+      <xs:element name="DandP" nillable="true" type="xs:string" />
+      <xs:element name="Weiss" nillable="true" type="xs:string" />
+      <xs:element name="Comdex" nillable="true" type="xs:string" />
+      <xs:element name="Premium" nillable="true" type="tns:ULPremium" />
+      <xs:element name="NextClassPremium" nillable="true" type="tns:ULNextClassPremium" />
+      <xs:element name="CarrierCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ULPricingResult" nillable="true" type="tns:ULPricingResult" />
+  <xs:complexType name="ULRidersAvailable">
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Rider" nillable="true" type="q9:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ULRidersAvailable" nillable="true" type="tns:ULRidersAvailable" />
+  <xs:complexType name="ULPremium">
+    <xs:sequence>
+      <xs:element name="Annual" nillable="true" type="xs:string" />
+      <xs:element name="Monthly" nillable="true" type="xs:string" />
+      <xs:element name="Quarterly" nillable="true" type="xs:string" />
+      <xs:element name="Semi" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ULPremium" nillable="true" type="tns:ULPremium" />
+  <xs:complexType name="ULNextClassPremium">
+    <xs:sequence>
+      <xs:element name="Annual" nillable="true" type="xs:string" />
+      <xs:element name="Monthly" nillable="true" type="xs:string" />
+      <xs:element name="Quarterly" nillable="true" type="xs:string" />
+      <xs:element name="Semi" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ULNextClassPremium" nillable="true" type="tns:ULNextClassPremium" />
+  <xs:element name="GetQuickTermPricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:GetTermPricingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetQuickTermPricingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetQuickTermPricingResult" nillable="true" type="tns:GetTermPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetULCasePricingEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:GetULPricingRequest" />
+        <xs:element minOccurs="0" name="uwResults" nillable="true" type="tns:GetUnderwritingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetULCasePricingExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetULCasePricingExResult" nillable="true" type="tns:GetULPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseULPricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="param" nillable="true" type="tns:GetULPricingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseULPricingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseULPricingResult" nillable="true" type="tns:GetULPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseTermPricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseTermPricingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseTermPricingResult" nillable="true" type="tns:GetTermPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseTermPricingEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="results" nillable="true" type="tns:GetUnderwritingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaseTermPricingExResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCaseTermPricingExResult" nillable="true" type="tns:GetTermPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasetermPricingTermLength">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="results" nillable="true" type="tns:GetUnderwritingResult" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="termLengths" nillable="true" type="q10:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasetermPricingTermLengthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCasetermPricingTermLengthResult" nillable="true" type="tns:GetTermPricingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordMIARCaseSearchResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="regularResults" nillable="true" type="tns:ArrayOfCarrierUnderwritingResult" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="multiFactorResults" nillable="true" type="q11:ArrayOfKeyValueOfstringArrayOfCarrierUnderwritingResultEPOzHGRL" />
+        <xs:element minOccurs="0" name="caseKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordMIARCaseSearchResultsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecordMIARCaseSearchResultsResult" nillable="true" type="tns:RecordCaseSearchMIARResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RecordCaseSearchMIARResult">
+    <xs:sequence>
+      <xs:element name="IsSuccessful" type="xs:boolean" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecordCaseSearchMIARResult" nillable="true" type="tns:RecordCaseSearchMIARResult" />
+</xs:schema>

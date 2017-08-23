@@ -1,0 +1,208 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<HTML>
+
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.02 [en]C-DIAL  (Win95; U) [Netscape]">
+   <META NAME="Author" CONTENT="COMPULIFE Software, Inc.">
+   <TITLE>Life Insurance Quotes - $licensee$</TITLE>
+   <link href="../../css/$css$" type="text/css" rel="stylesheet"/>
+</HEAD>
+<BODY>
+
+<br>
+
+<h5>COMPULIFE<sup>&reg;</sup> Website Quotes - Administration Page</h5>
+
+<FORM name="companyselectionform" action="cqsl.cgi" method="POST">
+
+<table align="center">
+<tr valign="top">
+<td>
+
+
+
+
+
+<table class="default_table" align="center">
+
+<tr class="default_header">
+<td class="default_header">Select a Group of Companies to Quote</td>
+<tr>
+
+<tr class="default_sub_header_center">
+<td class="default_sub_header_center">
+
+
+<INPUT type=hidden name="CompanySelected">
+
+Check the companies to quote,<br>then click here to 
+<INPUT type="submit" name="SaveCompanies" value=" Save Changes ">
+
+
+</td>
+</tr>
+
+<tr class="default_table">
+<td class="default_table">
+<br>
+&nbsp;<INPUT type="submit" name="RefreshAllOn" value=" All on ">&nbsp;
+<INPUT type="submit" name="RefreshAllOff" value=" All off ">&nbsp;
+<INPUT type="submit" name="ModifyCompanies" value=" Reload Current List ">&nbsp;
+<br>
+$compline=$
+<INPUT TYPE="checkbox" $ischecked$ NAME="CompToInclude" value="$refnum$"> $company$ <br>
+$/compline$
+
+</td>
+</tr>
+
+<tr class="default_table">
+<td class="default_sub_header_center">Click here to 
+<INPUT type="submit" name="SaveCompanies" value=" Save Changes ">
+</td>
+</tr>
+</table>
+
+
+
+
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+
+
+
+
+<table class="default_table" align="center">
+
+<tr class="default_header">
+<td colspan="2" class="default_header">Request Application Button</td>
+<tr>
+
+<tr class="default_sub_header_center">
+<td colspan="2" class="default_sub_header_center">If you selected a template that has a "Request Application" button, the <br>application requests will be sent to the email address(es) that you enter.</td>
+<tr>
+
+<tr>
+<td style="text-align:right;"><b>&nbsp;Enter Email:&nbsp;</b></td>
+<td><INPUT style="width: 390px" type="text" name="email" value="$email$">&nbsp;</td>
+</tr>
+
+<tr>
+<td style="text-align:right;">&nbsp;</td>
+<td style="text-align:center;">You can enter multiple e-mail addresses, separated with a comma.<br>i.e. - agent@your_website.com, agent2@your_website.com&nbsp;</td>
+</tr>
+
+<tr class="default_table">
+<td class="default_sub_header_center_border" colspan="2">Click here to 
+<INPUT type="submit" name="SaveCompanies" value=" Save Changes ">
+</td>
+</tr>
+
+</table>
+
+<br>
+
+<table class="default_table" align="center">
+
+<tr class="default_header">
+<td colspan="2" class="default_header">More Info Button</td>
+<tr>
+
+<tr class="default_sub_header_center">
+<td colspan="2" class="default_sub_header_center">If you selected a template that has a "More Info" button,<br>the button will link to the website address that you enter.</td>
+<tr>
+
+<tr>
+<td style="text-align:right;"><b>&nbsp;Enter Website:&nbsp;</b></td>
+<td><INPUT style="width: 300px" type="text" name="website" value="$website$">&nbsp;</td>
+</tr>
+
+<tr>
+<td style="text-align:right;">&nbsp;</td>
+<td>i.e. - http://www.your_website.com/about_us.html&nbsp;</td>
+</tr>
+
+<tr class="default_table">
+<td class="default_sub_header_center_border" colspan="2">Click here to 
+<INPUT type="submit" name="SaveCompanies" value=" Save Changes ">
+</td>
+</tr>
+
+</table>
+
+
+<br>
+
+<table class="default_table" align="center">
+
+<tr class="default_header">
+<td colspan="2" class="default_header">Style</td>
+<tr>
+
+<tr class="default_sub_header_center">
+<td colspan="2" class="default_sub_header_center">&nbsp;This setting will change the "look and feel" of your quotes.&nbsp;</td>
+<tr>
+
+<tr>
+<td style="text-align:right;"><b>&nbsp;Select Style:&nbsp;</b></td>
+<td><SELECT name="css">
+<option value="$css$" selected>Current Selection ($css$)</option>
+<optgroup label="Websites">
+<option value="styles_website.css">Default Website (styles_website.css)</option>
+<option value="styles_website_c_1.css">Blue, off-white bg (styles_website_c_1.css)</option>
+</optgroup>
+<optgroup label="Mobile Devices">
+<option value="styles_mobile.css">Default Mobile (styles_mobile.css)</option>
+<option value="styles_mobile_i.css">iPhone (styles_mobile_i.css)</option>
+</optgroup>
+</select>&nbsp;
+</tr>
+
+
+<tr class="default_table">
+<td class="default_sub_header_center_border" colspan="2">Click here to 
+<INPUT type="submit" name="SaveCompanies" value=" Save Changes ">
+</td>
+</tr>
+
+</table>
+
+
+<br>
+
+
+
+
+</td>
+</tr>
+</table>
+
+
+
+
+<!-- Pass some hidden values onto the next page -->
+<INPUT type="hidden" name="State" value="$origstate$">
+<INPUT type="hidden" name="Birthday" value="$origday$">
+<INPUT type="hidden" name="BirthMonth" value="$origmonth$">
+<INPUT type="hidden" name="BirthYear" value="$origyear$">
+<INPUT type="hidden" name="Health" value="$orighealth$">
+<INPUT type="hidden" name="FaceAmount" value="$origface$">
+<INPUT type="hidden" name="Sex" value="$origsex$">
+<INPUT type="hidden" name="Smoker" value="$origsmoker$">
+<INPUT type="hidden" name="Category" value="$origcat$">
+<INPUT type="hidden" name="UserLocation" value="$userlocation$">
+<INPUT type="hidden" name="email" value="$email$">
+<INPUT type="hidden" name="css" value="$css$">
+<INPUT type="hidden" name="TEMPLATEFILE" value="$templatefile$">
+<INPUT type="hidden" name="HTEMPLATEFILE" value="$htemplatefile$">
+</FORM>
+
+<p class="center"><b>Powered by <a class="nocolor" href="http://www.compulife.com">COMPULIFE</a><sup>&reg;</sup></b>
+
+</BODY>
+</HTML>

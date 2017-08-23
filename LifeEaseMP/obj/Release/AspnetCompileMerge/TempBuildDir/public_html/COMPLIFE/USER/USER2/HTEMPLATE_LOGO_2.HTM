@@ -1,0 +1,700 @@
+<HTML>
+
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.02 [en]C-DIAL  (Win95; U) [Netscape]">
+   <META NAME="Author" CONTENT="Robert L. Barney">
+   <TITLE>Life Insurance Quotes - $licensee$</TITLE>
+   <link href="../../css/$css$" type="text/css" rel="stylesheet"/>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+function getdetailed (prodcode, healthpref, gonodk, company, product, healthclass)
+{		
+  document.comparisonform.ProductCode.value = prodcode;
+  document.comparisonform.HealthPref.value = healthpref;  
+  document.comparisonform.GoNoDk.value = gonodk;
+  document.comparisonform.CompanyName.value = company;
+  document.comparisonform.ProductName.value = product;
+  document.comparisonform.HealthClass.value = healthclass;
+  document.comparisonform.AmBest.value = 'false';
+  document.comparisonform.OnClick=abc=window.open('','reason','width=700,height=300,left=20,top=20,scrollbars=yes');
+  document.comparisonform.target='reason';
+  abc.focus();
+  document.comparisonform.submit();
+}
+
+function getbest (ambest, company, compcode)
+{
+  document.comparisonform.AmBest.value = ambest;
+  document.comparisonform.CompanyName.value = company;
+  document.comparisonform.CompanyCode.value = compcode;
+  document.comparisonform.OnClick=abc=window.open('','reason','width=700,height=500,left=20,top=20,scrollbars=yes');
+  document.comparisonform.target='reason';
+  abc.focus();
+  document.comparisonform.submit();
+}
+-->
+</script>
+
+
+</HEAD>
+
+<body>
+
+<br><br>
+
+
+<table class="default_table" align="center">
+  <tr class="default_header"><!-- Row 1 -->
+    <td class="default_header" colspan="2"><b>Guide to Health Analysis symbols which appear after premiums</b></td>
+  </tr>
+  <tr class="default_sub_header"><!-- Row 5 -->
+    <td class="default_sub_header_center" colspan="2">&nbsp;Place your cursor over the symbol which follows the premium for more information</td>
+  </tr>
+  <tr class="default_table"><!-- Row 2 -->
+    <td class="default_table" ><A NAME="#5000"></A> <img src="$origgostring$"></td>
+    <td bgcolor="#CCFFCC">&nbsp;indicates, based upon what you told Health Analyzer, that this <b>premium is available</b></td>
+  </tr>
+  <tr class="default_table"><!-- Row 3 -->
+    <td class="default_table" ><A NAME="#5001"></A> <img src="$origdonotknowstring$"></td>
+    <td class="default_table" >&nbsp;indicates we do not have enough information from the company to make a determination</td>
+  </tr>
+  <tr class="default_table"><!-- Row 4 -->
+    <td class="default_table" ><A NAME="#5002"></A> <img src="$orignogostring$"></td>
+    <td bgcolor="#FFDDDD">&nbsp;indicates, based upon what you told Health Analyzer, that this <b>premium is not available</b>&nbsp;</td>
+  </tr>
+  
+
+</table>
+
+<br>
+
+<table align="center">
+<tr>
+<td>
+<FORM name="relookupform" action="cqsl.cgi" method="POST">
+<p><b>Filter:</b>
+<SELECT NAME="NoRedX" size="1">
+<OPTION $selectednoredxoff$ value=OFF">include products I do not qualify for</OPTION>
+<OPTION $selectednoredxon$ value="ON">remove products I do not qualify for</OPTION>
+</SELECT>
+&nbsp;&nbsp;&nbsp;<b>Sort:</b>
+<SELECT NAME="SortByHealth" size="1">
+<OPTION $selectedsortbyhealthoff$ value="OFF">by premium</OPTION>
+<OPTION $selectedsortbyhealthon$ value="ON">by health</OPTION>
+</SELECT>
+&nbsp;&nbsp;<INPUT type="submit" name="CqsComparison" value="Recalulate Results">
+
+<!-- pass some environment variables onto the next page -->
+<INPUT type="hidden" name="State" value="$origstate$">
+<INPUT type="hidden" name="Birthday" value="$origday$">
+<INPUT type="hidden" name="BirthMonth" value="$origmonth$">
+<INPUT type="hidden" name="BirthYear" value="$origyear$">
+<INPUT type="hidden" name="Health" value="$orighealth$">
+<INPUT type="hidden" name="FaceAmount" value="$newface$">
+<INPUT type="hidden" name="Sex" value="$origsex$">
+<INPUT type="hidden" name="Smoker" value="$origsmoker$">
+<INPUT type="hidden" name="Category" value="$origcat$">
+<INPUT type="hidden" name="ModeUsed" value="$origmodeused$">
+<INPUT type="hidden" name="EmbeddedAccums" value="ON">
+<INPUT type="hidden" name="EmbeddedAccumColor" value="#FF0000">
+<INPUT type="hidden" name="UserLocation" value="$userlocation$">
+<INPUT type="hidden" name="TEMPLATEFILE" value="$templatefile$">
+<INPUT type="hidden" name="HTEMPLATEFILE" value="$htemplatefile$">
+<INPUT type="hidden" name="ZipCode" value="$zipcode$">
+<INPUT TYPE="hidden" NAME="MaxNumResults" value="$maxnumresults$">
+
+<INPUT type="hidden" name="GoString" value="$origgostring$">
+<INPUT type="hidden" name="NoGoString" value="$orignogostring$">
+<INPUT type="hidden" name="DoNotKnowString" value="$origdonotknowstring$">
+<INPUT type="hidden" name="GoColor" value="$origgocolor$">
+<INPUT type="hidden" name="NoGoColor" value="$orignogocolor$">
+<INPUT type="hidden" name="DoNotKnowColor" value="$origdonotknowcolor$">
+<INPUT type="hidden" name="RejectReasonBr" value="$origrejectreasonbr$">
+<INPUT type="hidden" name="GoMessage" value="$origgomessage$">
+<INPUT type="hidden" name="DoNotKnowMessage" value="$origdonotknowmessage$">
+
+<INPUT type="hidden" name="DoSmokingTobacco" value="$origdosmokingtobacco$">
+<INPUT type="hidden" name="DoHeightWeight" value="$origdoheightweight$">
+<INPUT type="hidden" name="DoBloodPressure" value="$origdobloodpressure$">
+<INPUT type="hidden" name="DoCholesterol" value="$origdocholesterol$">
+<INPUT type="hidden" name="DoDriving" value="$origdodriving$">
+<INPUT type="hidden" name="DoFamily" value="$origdofamily$">
+<INPUT type="hidden" name="DoCigarettes" value="$origdocigarettes$">
+<INPUT type="hidden" name="DoCigars" value="$origdocigars$">
+<INPUT type="hidden" name="DoPipe" value="$origdopipe$">
+<INPUT type="hidden" name="DoChewingTobacco" value="$origdochewingtobacco$">
+<INPUT type="hidden" name="DoNicotinePatchesOrGum" value="$origdonicotinepatchesorgum$">
+<INPUT type="hidden" name="NumCigarettes" value="$orignumcigarettes$">
+<INPUT type="hidden" name="PeriodCigarettes" value="$origperiodcigarettes$">
+<INPUT type="hidden" name="NumCigars" value="$orignumcigars$">
+<INPUT type="hidden" name="PeriodCigars" value="$origperiodcigars$">
+<INPUT type="hidden" name="PeriodPipe" value="$origperiodpipe$">
+<INPUT type="hidden" name="PeriodChewingTobacco" value="$origperiodchewingtobacco$">
+<INPUT type="hidden" name="PeriodNicotinePatchesOrGum" value="$origperiodnicotinepatchesorgum$">
+<INPUT type="hidden" name="Weight" value="$origweight$">
+<INPUT type="hidden" name="Feet" value="$origfeet$">
+<INPUT type="hidden" name="Inches" value="$originches$">
+<INPUT type="hidden" name="Systolic" value="$origsystolic$">
+<INPUT type="hidden" name="Dystolic" value="$origdystolic$">
+<INPUT type="hidden" name="BloodPressureMedication" value="$origbloodpressuremedication$">
+<INPUT type="hidden" name="PeriodBloodPressure" value="$origperiodbloodpressure$">
+<INPUT type="hidden" name="PeriodBloodPressureControlDuration" value="$origperiodbloodpressurecontrolduration$">
+<INPUT type="hidden" name="CholesterolLevel" value="$origcholesterollevel$">
+<INPUT type="hidden" name="HDLRatio" value="$orighdlratio$">
+<INPUT type="hidden" name="CholesterolMedication" value="$origcholesterolmedication$">
+<INPUT type="hidden" name="PeriodCholesterol" value="$origperiodcholesterol$">
+<INPUT type="hidden" name="PeriodCholesterolControlDuration" value="$origperiodcholesterolcontrolduration$">
+
+<INPUT type="hidden" name="HadDriversLicense" value="$orighaddriverslicense$">
+<INPUT type="hidden" name="MovingViolations0" value="$origmovingviolations0$">
+<INPUT type="hidden" name="MovingViolations1" value="$origmovingviolations1$">
+<INPUT type="hidden" name="MovingViolations2" value="$origmovingviolations2$">
+<INPUT type="hidden" name="MovingViolations3" value="$origmovingviolations3$">
+<INPUT type="hidden" name="MovingViolations4" value="$origmovingviolations4$">
+<INPUT type="hidden" name="RecklessConviction" value="$origrecklessconviction$">
+<INPUT type="hidden" name="PeriodRecklessConviction" value="$origperiodrecklessconviction$">
+<INPUT type="hidden" name="DwiConviction" value="$origdwiconviction$">
+<INPUT type="hidden" name="PeriodDwiConviction" value="$origperioddwiconviction$">
+<INPUT type="hidden" name="SuspendedConviction" value="$origsuspendedconviction$">
+<INPUT type="hidden" name="PeriodSuspendedConviction" value="$origperiodsuspendedconviction$">
+<INPUT type="hidden" name="MoreThanOneAccident" value="$origmorethanoneaccident$">
+<INPUT type="hidden" name="PeriodMoreThanOneAccident" value="$origperiodmorethanoneaccident$">
+<INPUT type="hidden" name="NumDeaths" value="$orignumdeaths$">
+<INPUT type="hidden" name="NumContracted" value="$orignumcontracted$">
+<INPUT type="hidden" name="AgeDied00" value="$origagedied00$">
+<INPUT type="hidden" name="AgeDied01" value="$origagedied01$">
+<INPUT type="hidden" name="AgeDied02" value="$origagedied02$">
+<INPUT type="hidden" name="AgeContracted00" value="$origagecontracted00$">
+<INPUT type="hidden" name="AgeContracted01" value="$origagecontracted01$">
+<INPUT type="hidden" name="AgeContracted02" value="$origagecontracted02$">
+<INPUT type="hidden" name="AgeContracted10" value="$origagecontracted10$">
+<INPUT type="hidden" name="AgeContracted11" value="$origagecontracted11$">
+<INPUT type="hidden" name="AgeContracted12" value="$origagecontracted12$">
+<INPUT type="hidden" name="IsParent00" value="$origisparent00$">
+<INPUT type="hidden" name="IsParent01" value="$origisparent01$">
+<INPUT type="hidden" name="IsParent02" value="$origisparent02$">
+<INPUT type="hidden" name="IsParent10" value="$origisparent10$">
+<INPUT type="hidden" name="IsParent11" value="$origisparent11$">
+<INPUT type="hidden" name="IsParent12" value="$origisparent12$">
+<INPUT type="hidden" name="CVD00" value="$origcvd00$">
+<INPUT type="hidden" name="CVD01" value="$origcvd01$">
+<INPUT type="hidden" name="CVD02" value="$origcvd02$">
+<INPUT type="hidden" name="CVD10" value="$origcvd10$">
+<INPUT type="hidden" name="CVD11" value="$origcvd11$">
+<INPUT type="hidden" name="CVD12" value="$origcvd12$">
+<INPUT type="hidden" name="CAD00" value="$origcad00$">
+<INPUT type="hidden" name="CAD01" value="$origcad01$">
+<INPUT type="hidden" name="CAD02" value="$origcad02$">
+<INPUT type="hidden" name="CAD10" value="$origcad10$">
+<INPUT type="hidden" name="CAD11" value="$origcad11$">
+<INPUT type="hidden" name="CAD12" value="$origcad12$">
+<INPUT type="hidden" name="CVI00" value="$origcvi00$">
+<INPUT type="hidden" name="CVI01" value="$origcvi01$">
+<INPUT type="hidden" name="CVI02" value="$origcvi02$">
+<INPUT type="hidden" name="CVI10" value="$origcvi10$">
+<INPUT type="hidden" name="CVI11" value="$origcvi11$">
+<INPUT type="hidden" name="CVI12" value="$origcvi12$">
+<INPUT type="hidden" name="CVA00" value="$origcva00$">
+<INPUT type="hidden" name="CVA01" value="$origcva01$">
+<INPUT type="hidden" name="CVA02" value="$origcva02$">
+<INPUT type="hidden" name="CVA10" value="$origcva10$">
+<INPUT type="hidden" name="CVA11" value="$origcva11$">
+<INPUT type="hidden" name="CVA12" value="$origcva12$">
+<INPUT type="hidden" name="Diabetes00" value="$origdiabetes00$">
+<INPUT type="hidden" name="Diabetes01" value="$origdiabetes01$">
+<INPUT type="hidden" name="Diabetes02" value="$origdiabetes02$">
+<INPUT type="hidden" name="Diabetes10" value="$origdiabetes10$">
+<INPUT type="hidden" name="Diabetes11" value="$origdiabetes11$">
+<INPUT type="hidden" name="Diabetes12" value="$origdiabetes12$">
+<INPUT type="hidden" name="KidneyDisease00" value="$origkidneydisease00$">
+<INPUT type="hidden" name="KidneyDisease01" value="$origkidneydisease01$">
+<INPUT type="hidden" name="KidneyDisease02" value="$origkidneydisease02$">
+<INPUT type="hidden" name="KidneyDisease10" value="$origkidneydisease10$">
+<INPUT type="hidden" name="KidneyDisease11" value="$origkidneydisease11$">
+<INPUT type="hidden" name="KidneyDisease12" value="$origkidneydisease12$">
+<INPUT type="hidden" name="ColonCancer00" value="$origcoloncancer00$">
+<INPUT type="hidden" name="ColonCancer01" value="$origcoloncancer01$">
+<INPUT type="hidden" name="ColonCancer02" value="$origcoloncancer02$">
+<INPUT type="hidden" name="ColonCancer10" value="$origcoloncancer10$">
+<INPUT type="hidden" name="ColonCancer11" value="$origcoloncancer11$">
+<INPUT type="hidden" name="ColonCancer12" value="$origcoloncancer12$">
+<INPUT type="hidden" name="IntestinalCancer00" value="$origintestinalcancer00$">
+<INPUT type="hidden" name="IntestinalCancer01" value="$origintestinalcancer01$">
+<INPUT type="hidden" name="IntestinalCancer02" value="$origintestinalcancer02$">
+<INPUT type="hidden" name="IntestinalCancer10" value="$origintestinalcancer10$">
+<INPUT type="hidden" name="IntestinalCancer11" value="$origintestinalcancer11$">
+<INPUT type="hidden" name="IntestinalCancer12" value="$origintestinalcancer12$">
+<INPUT type="hidden" name="BreastCancer00" value="$origbreastcancer00$">
+<INPUT type="hidden" name="BreastCancer01" value="$origbreastcancer01$">
+<INPUT type="hidden" name="BreastCancer02" value="$origbreastcancer02$">
+<INPUT type="hidden" name="BreastCancer10" value="$origbreastcancer10$">
+<INPUT type="hidden" name="BreastCancer11" value="$origbreastcancer11$">
+<INPUT type="hidden" name="BreastCancer12" value="$origbreastcancer12$">
+<INPUT type="hidden" name="ProstateCancer00" value="$origprostatecancer00$">
+<INPUT type="hidden" name="ProstateCancer01" value="$origprostatecancer01$">
+<INPUT type="hidden" name="ProstateCancer02" value="$origprostatecancer02$">
+<INPUT type="hidden" name="ProstateCancer10" value="$origprostatecancer10$">
+<INPUT type="hidden" name="ProstateCancer11" value="$origprostatecancer11$">
+<INPUT type="hidden" name="ProstateCancer12" value="$origprostatecancer12$">
+<INPUT type="hidden" name="OvarianCancer00" value="$origovariancancer00$">
+<INPUT type="hidden" name="OvarianCancer01" value="$origovariancancer01$">
+<INPUT type="hidden" name="OvarianCancer02" value="$origovariancancer02$">
+<INPUT type="hidden" name="OvarianCancer10" value="$origovariancancer10$">
+<INPUT type="hidden" name="OvarianCancer11" value="$origovariancancer11$">
+<INPUT type="hidden" name="OvarianCancer12" value="$origovariancancer12$">
+<INPUT type="hidden" name="OtherInternalCancer00" value="$origotherinternalcancer00$">
+<INPUT type="hidden" name="OtherInternalCancer01" value="$origotherinternalcancer01$">
+<INPUT type="hidden" name="OtherInternalCancer02" value="$origotherinternalcancer02$">
+<INPUT type="hidden" name="OtherInternalCancer10" value="$origotherinternalcancer10$">
+<INPUT type="hidden" name="OtherInternalCancer11" value="$origotherinternalcancer11$">
+<INPUT type="hidden" name="OtherInternalCancer12" value="$origotherinternalcancer12$">
+<INPUT type="hidden" name="MalignantMelanoma00" value="$origmalignantmelanoma00$">
+<INPUT type="hidden" name="MalignantMelanoma01" value="$origmalignantmelanoma01$">
+<INPUT type="hidden" name="MalignantMelanoma02" value="$origmalignantmelanoma02$">
+<INPUT type="hidden" name="MalignantMelanoma10" value="$origmalignantmelanoma10$">
+<INPUT type="hidden" name="MalignantMelanoma11" value="$origmalignantmelanoma11$">
+<INPUT type="hidden" name="MalignantMelanoma12" value="$origmalignantmelanoma12$">
+<INPUT type="hidden" name="BasalCellCarcinoma00" value="$origbasalcellcarcinoma00$">
+<INPUT type="hidden" name="BasalCellCarcinoma01" value="$origbasalcellcarcinoma01$">
+<INPUT type="hidden" name="BasalCellCarcinoma02" value="$origbasalcellcarcinoma02$">
+<INPUT type="hidden" name="BasalCellCarcinoma10" value="$origbasalcellcarcinoma10$">
+<INPUT type="hidden" name="BasalCellCarcinoma11" value="$origbasalcellcarcinoma11$">
+<INPUT type="hidden" name="BasalCellCarcinoma12" value="$origbasalcellcarcinoma12$">
+</FORM>
+
+</td>
+</tr>
+</table>
+
+<!-- This next form will open up a new window -->
+<FORM name="comparisonform" action="cqsl.cgi" method="POST" BASE TARGET="Detailed">
+<INPUT type="hidden" name="HealthReason" value="Health Reason">
+<INPUT type="hidden" name="ProductCode">
+<INPUT type="hidden" name="HealthPref">
+<INPUT type="hidden" name="GoNoDk">
+<INPUT type="hidden" name="CompanyName">
+<INPUT type="hidden" name="CompanyCode">
+<INPUT type="hidden" name="ProductName">
+<INPUT type="hidden" name="HealthClass">
+<INPUT type="hidden" name="AmBest">
+
+<!-- pass some environment variables onto the next page -->
+<INPUT type="hidden" name="State" value="$origstate$">
+<INPUT type="hidden" name="Birthday" value="$origday$">
+<INPUT type="hidden" name="BirthMonth" value="$origmonth$">
+<INPUT type="hidden" name="BirthYear" value="$origyear$">
+<INPUT type="hidden" name="Health" value="$orighealth$">
+<INPUT type="hidden" name="FaceAmount" value="$newface$">
+<INPUT type="hidden" name="Sex" value="$origsex$">
+<INPUT type="hidden" name="Smoker" value="$origsmoker$">
+<INPUT type="hidden" name="Category" value="$origcat$">
+<INPUT type="hidden" name="ModeUsed" value="$origmodeused$">
+<INPUT type="hidden" name="EmbeddedAccums" value="ON">
+<INPUT type="hidden" name="EmbeddedAccumColor" value="#FF0000">
+<INPUT type="hidden" name="UserLocation" value="$userlocation$">
+<INPUT type="hidden" name="ZipCode" value="$zipcode$">
+
+<INPUT type="hidden" name="NoRedX" value="$orignoredx$">
+<INPUT type="hidden" name="SortByHealth" value="$origsortbyhealth$">
+<INPUT type="hidden" name="GoString" value="$origgostring$">
+<INPUT type="hidden" name="NoGoString" value="$orignogostring$">
+<INPUT type="hidden" name="DoNotKnowString" value="$origdonotknowstring$">
+<INPUT type="hidden" name="GoColor" value="$origgocolor$">
+<INPUT type="hidden" name="NoGoColor" value="$orignogocolor$">
+<INPUT type="hidden" name="DoNotKnowColor" value="$origdonotknowcolor$">
+
+<INPUT type="hidden" name="DoSmokingTobacco" value="$origdosmokingtobacco$">
+<INPUT type="hidden" name="DoHeightWeight" value="$origdoheightweight$">
+<INPUT type="hidden" name="DoBloodPressure" value="$origdobloodpressure$">
+<INPUT type="hidden" name="DoCholesterol" value="$origdocholesterol$">
+<INPUT type="hidden" name="DoDriving" value="$origdodriving$">
+<INPUT type="hidden" name="DoFamily" value="$origdofamily$">
+<INPUT type="hidden" name="DoCigarettes" value="$origdocigarettes$">
+<INPUT type="hidden" name="DoCigars" value="$origdocigars$">
+<INPUT type="hidden" name="DoPipe" value="$origdopipe$">
+<INPUT type="hidden" name="DoChewingTobacco" value="$origdochewingtobacco$">
+<INPUT type="hidden" name="DoNicotinePatchesOrGum" value="$origdonicotinepatchesorgum$">
+<INPUT type="hidden" name="NumCigarettes" value="$orignumcigarettes$">
+<INPUT type="hidden" name="PeriodCigarettes" value="$origperiodcigarettes$">
+<INPUT type="hidden" name="NumCigars" value="$orignumcigars$">
+<INPUT type="hidden" name="PeriodCigars" value="$origperiodcigars$">
+<INPUT type="hidden" name="PeriodPipe" value="$origperiodpipe$">
+<INPUT type="hidden" name="PeriodChewingTobacco" value="$origperiodchewingtobacco$">
+<INPUT type="hidden" name="PeriodNicotinePatchesOrGum" value="$origperiodnicotinepatchesorgum$">
+<INPUT type="hidden" name="Weight" value="$origweight$">
+<INPUT type="hidden" name="Feet" value="$origfeet$">
+<INPUT type="hidden" name="Inches" value="$originches$">
+<INPUT type="hidden" name="Systolic" value="$origsystolic$">
+<INPUT type="hidden" name="Dystolic" value="$origdystolic$">
+<INPUT type="hidden" name="BloodPressureMedication" value="$origbloodpressuremedication$">
+<INPUT type="hidden" name="PeriodBloodPressure" value="$origperiodbloodpressure$">
+<INPUT type="hidden" name="PeriodBloodPressureControlDuration" value="$origperiodbloodpressurecontrolduration$">
+<INPUT type="hidden" name="CholesterolLevel" value="$origcholesterollevel$">
+<INPUT type="hidden" name="HDLRatio" value="$orighdlratio$">
+<INPUT type="hidden" name="CholesterolMedication" value="$origcholesterolmedication$">
+<INPUT type="hidden" name="PeriodCholesterol" value="$origperiodcholesterol$">
+<INPUT type="hidden" name="PeriodCholesterolControlDuration" value="$origperiodcholesterolcontrolduration$">
+
+<INPUT type="hidden" name="HadDriversLicense" value="$orighaddriverslicense$">
+<INPUT type="hidden" name="MovingViolations0" value="$origmovingviolations0$">
+<INPUT type="hidden" name="MovingViolations1" value="$origmovingviolations1$">
+<INPUT type="hidden" name="MovingViolations2" value="$origmovingviolations2$">
+<INPUT type="hidden" name="MovingViolations3" value="$origmovingviolations3$">
+<INPUT type="hidden" name="MovingViolations4" value="$origmovingviolations4$">
+<INPUT type="hidden" name="RecklessConviction" value="$origrecklessconviction$">
+<INPUT type="hidden" name="PeriodRecklessConviction" value="$origperiodrecklessconviction$">
+<INPUT type="hidden" name="DwiConviction" value="$origdwiconviction$">
+<INPUT type="hidden" name="PeriodDwiConviction" value="$origperioddwiconviction$">
+<INPUT type="hidden" name="SuspendedConviction" value="$origsuspendedconviction$">
+<INPUT type="hidden" name="PeriodSuspendedConviction" value="$origperiodsuspendedconviction$">
+<INPUT type="hidden" name="MoreThanOneAccident" value="$origmorethanoneaccident$">
+<INPUT type="hidden" name="PeriodMoreThanOneAccident" value="$origperiodmorethanoneaccident$">
+<INPUT type="hidden" name="NumDeaths" value="$orignumdeaths$">
+<INPUT type="hidden" name="NumContracted" value="$orignumcontracted$">
+<INPUT type="hidden" name="AgeDied00" value="$origagedied00$">
+<INPUT type="hidden" name="AgeDied01" value="$origagedied01$">
+<INPUT type="hidden" name="AgeDied02" value="$origagedied02$">
+<INPUT type="hidden" name="AgeContracted00" value="$origagecontracted00$">
+<INPUT type="hidden" name="AgeContracted01" value="$origagecontracted01$">
+<INPUT type="hidden" name="AgeContracted02" value="$origagecontracted02$">
+<INPUT type="hidden" name="AgeContracted10" value="$origagecontracted10$">
+<INPUT type="hidden" name="AgeContracted11" value="$origagecontracted11$">
+<INPUT type="hidden" name="AgeContracted12" value="$origagecontracted12$">
+<INPUT type="hidden" name="IsParent00" value="$origisparent00$">
+<INPUT type="hidden" name="IsParent01" value="$origisparent01$">
+<INPUT type="hidden" name="IsParent02" value="$origisparent02$">
+<INPUT type="hidden" name="IsParent10" value="$origisparent10$">
+<INPUT type="hidden" name="IsParent11" value="$origisparent11$">
+<INPUT type="hidden" name="IsParent12" value="$origisparent12$">
+<INPUT type="hidden" name="CVD00" value="$origcvd00$">
+<INPUT type="hidden" name="CVD01" value="$origcvd01$">
+<INPUT type="hidden" name="CVD02" value="$origcvd02$">
+<INPUT type="hidden" name="CVD10" value="$origcvd10$">
+<INPUT type="hidden" name="CVD11" value="$origcvd11$">
+<INPUT type="hidden" name="CVD12" value="$origcvd12$">
+<INPUT type="hidden" name="CAD00" value="$origcad00$">
+<INPUT type="hidden" name="CAD01" value="$origcad01$">
+<INPUT type="hidden" name="CAD02" value="$origcad02$">
+<INPUT type="hidden" name="CAD10" value="$origcad10$">
+<INPUT type="hidden" name="CAD11" value="$origcad11$">
+<INPUT type="hidden" name="CAD12" value="$origcad12$">
+<INPUT type="hidden" name="CVI00" value="$origcvi00$">
+<INPUT type="hidden" name="CVI01" value="$origcvi01$">
+<INPUT type="hidden" name="CVI02" value="$origcvi02$">
+<INPUT type="hidden" name="CVI10" value="$origcvi10$">
+<INPUT type="hidden" name="CVI11" value="$origcvi11$">
+<INPUT type="hidden" name="CVI12" value="$origcvi12$">
+<INPUT type="hidden" name="CVA00" value="$origcva00$">
+<INPUT type="hidden" name="CVA01" value="$origcva01$">
+<INPUT type="hidden" name="CVA02" value="$origcva02$">
+<INPUT type="hidden" name="CVA10" value="$origcva10$">
+<INPUT type="hidden" name="CVA11" value="$origcva11$">
+<INPUT type="hidden" name="CVA12" value="$origcva12$">
+<INPUT type="hidden" name="Diabetes00" value="$origdiabetes00$">
+<INPUT type="hidden" name="Diabetes01" value="$origdiabetes01$">
+<INPUT type="hidden" name="Diabetes02" value="$origdiabetes02$">
+<INPUT type="hidden" name="Diabetes10" value="$origdiabetes10$">
+<INPUT type="hidden" name="Diabetes11" value="$origdiabetes11$">
+<INPUT type="hidden" name="Diabetes12" value="$origdiabetes12$">
+<INPUT type="hidden" name="KidneyDisease00" value="$origkidneydisease00$">
+<INPUT type="hidden" name="KidneyDisease01" value="$origkidneydisease01$">
+<INPUT type="hidden" name="KidneyDisease02" value="$origkidneydisease02$">
+<INPUT type="hidden" name="KidneyDisease10" value="$origkidneydisease10$">
+<INPUT type="hidden" name="KidneyDisease11" value="$origkidneydisease11$">
+<INPUT type="hidden" name="KidneyDisease12" value="$origkidneydisease12$">
+<INPUT type="hidden" name="ColonCancer00" value="$origcoloncancer00$">
+<INPUT type="hidden" name="ColonCancer01" value="$origcoloncancer01$">
+<INPUT type="hidden" name="ColonCancer02" value="$origcoloncancer02$">
+<INPUT type="hidden" name="ColonCancer10" value="$origcoloncancer10$">
+<INPUT type="hidden" name="ColonCancer11" value="$origcoloncancer11$">
+<INPUT type="hidden" name="ColonCancer12" value="$origcoloncancer12$">
+<INPUT type="hidden" name="IntestinalCancer00" value="$origintestinalcancer00$">
+<INPUT type="hidden" name="IntestinalCancer01" value="$origintestinalcancer01$">
+<INPUT type="hidden" name="IntestinalCancer02" value="$origintestinalcancer02$">
+<INPUT type="hidden" name="IntestinalCancer10" value="$origintestinalcancer10$">
+<INPUT type="hidden" name="IntestinalCancer11" value="$origintestinalcancer11$">
+<INPUT type="hidden" name="IntestinalCancer12" value="$origintestinalcancer12$">
+<INPUT type="hidden" name="BreastCancer00" value="$origbreastcancer00$">
+<INPUT type="hidden" name="BreastCancer01" value="$origbreastcancer01$">
+<INPUT type="hidden" name="BreastCancer02" value="$origbreastcancer02$">
+<INPUT type="hidden" name="BreastCancer10" value="$origbreastcancer10$">
+<INPUT type="hidden" name="BreastCancer11" value="$origbreastcancer11$">
+<INPUT type="hidden" name="BreastCancer12" value="$origbreastcancer12$">
+<INPUT type="hidden" name="ProstateCancer00" value="$origprostatecancer00$">
+<INPUT type="hidden" name="ProstateCancer01" value="$origprostatecancer01$">
+<INPUT type="hidden" name="ProstateCancer02" value="$origprostatecancer02$">
+<INPUT type="hidden" name="ProstateCancer10" value="$origprostatecancer10$">
+<INPUT type="hidden" name="ProstateCancer11" value="$origprostatecancer11$">
+<INPUT type="hidden" name="ProstateCancer12" value="$origprostatecancer12$">
+<INPUT type="hidden" name="OvarianCancer00" value="$origovariancancer00$">
+<INPUT type="hidden" name="OvarianCancer01" value="$origovariancancer01$">
+<INPUT type="hidden" name="OvarianCancer02" value="$origovariancancer02$">
+<INPUT type="hidden" name="OvarianCancer10" value="$origovariancancer10$">
+<INPUT type="hidden" name="OvarianCancer11" value="$origovariancancer11$">
+<INPUT type="hidden" name="OvarianCancer12" value="$origovariancancer12$">
+<INPUT type="hidden" name="OtherInternalCancer00" value="$origotherinternalcancer00$">
+<INPUT type="hidden" name="OtherInternalCancer01" value="$origotherinternalcancer01$">
+<INPUT type="hidden" name="OtherInternalCancer02" value="$origotherinternalcancer02$">
+<INPUT type="hidden" name="OtherInternalCancer10" value="$origotherinternalcancer10$">
+<INPUT type="hidden" name="OtherInternalCancer11" value="$origotherinternalcancer11$">
+<INPUT type="hidden" name="OtherInternalCancer12" value="$origotherinternalcancer12$">
+<INPUT type="hidden" name="MalignantMelanoma00" value="$origmalignantmelanoma00$">
+<INPUT type="hidden" name="MalignantMelanoma01" value="$origmalignantmelanoma01$">
+<INPUT type="hidden" name="MalignantMelanoma02" value="$origmalignantmelanoma02$">
+<INPUT type="hidden" name="MalignantMelanoma10" value="$origmalignantmelanoma10$">
+<INPUT type="hidden" name="MalignantMelanoma11" value="$origmalignantmelanoma11$">
+<INPUT type="hidden" name="MalignantMelanoma12" value="$origmalignantmelanoma12$">
+<INPUT type="hidden" name="BasalCellCarcinoma00" value="$origbasalcellcarcinoma00$">
+<INPUT type="hidden" name="BasalCellCarcinoma01" value="$origbasalcellcarcinoma01$">
+<INPUT type="hidden" name="BasalCellCarcinoma02" value="$origbasalcellcarcinoma02$">
+<INPUT type="hidden" name="BasalCellCarcinoma10" value="$origbasalcellcarcinoma10$">
+<INPUT type="hidden" name="BasalCellCarcinoma11" value="$origbasalcellcarcinoma11$">
+<INPUT type="hidden" name="BasalCellCarcinoma12" value="$origbasalcellcarcinoma12$">
+
+
+
+<!-- The next line represents the start of a comparison section -->
+<!-- It must be on a line by itself -->
+$comparisonrepeat$
+
+$nonsmoketable$
+<!--The following line defines the format for outputing the company and products, (max length is 400)-->
+
+<table class="default_table" width="100%">
+<tr>
+<td class="default_header" colspan="9">$title$</td>
+</tr>
+
+<tr>
+<!--<td class="default_sub_header" WIDTH="2%"></TD>-->
+<td class="default_sub_header">Company Logo</TD>
+<td class="default_sub_header" WIDTH="31%">Company Name</TD>
+<!-- <td class="default_sub_header" WIDTH="4%">AMB</TD> -->
+<td class="default_sub_header" WIDTH="6%">Annual</TD>
+<td class="default_sub_header" WIDTH="6%">$ModeUsedC$</TD>
+<td class="default_sub_header" WIDTH="3%" align="center">&nbsp;</TD>
+<td class="default_sub_header" WIDTH="3%">&nbsp;</TD>
+<td class="default_sub_header" WIDTH="27%">Product Name</TD>
+<!-- <td class="default_sub_header" WIDTH="3%">&nbsp;</TD> -->
+<td class="default_sub_header" WIDTH="23%">Health Category</TD>
+<td class="default_sub_header">Request Application</TD>
+</tr>
+
+<!-- The following line defines the format for outputing the company and products, (max length is 400)-->
+
+$prodline=50$
+
+<FORM action="http://www.compulife.net/cgi-bin/COMPLIFE/USER/$userlocation$/request_ap.php" method="POST">
+
+<tr HEIGHT="56" style="background-color:$healthcolor$; padding:3px; border-bottom: 1px solid #808080;">
+<TD style="text-align:center; border-bottom: 1px solid #808080; border-right: 1px solid #808080; background-color: #FFFFFF;"><img src="../../images/logos/$COMP$.gif" valign="middle" align="center" alt="logo" border="0" vspace="3" hspace="3"></TD>
+<TD style="padding:3px; border-bottom: 1px solid #808080;" WIDTH="31%">$company$</TD>
+<!-- <TD style="padding:3px; border-bottom: 1px solid #808080;" WIDTH="4%"><b>$amb$</b></TD> -->
+<TD style="background-color:$healthcolor$; padding:2px; border-bottom: 1px solid #808080;" WIDTH="6%"><DIV style="border-bottom:none; background-color:$healthcolor$;" ALIGN="right"><B>$$premiumAnnual$</font></B></DIV></TD>
+<TD style="background-color:$healthcolor$; padding:2px; border-bottom: 1px solid #808080;" WIDTH="6%"><DIV style="border-bottom:none; background-color:$healthcolor$;" ALIGN="right"><B>$$premium$</font></B></DIV></TD>
+<TD align="center" style="padding:3px; border-bottom: 1px solid #808080;" WIDTH="2%"><a href="javascript:getdetailed('$prod$','$healthpref$','$gonodk$','$company$','$product$','$healthcat$')" TITLE="$healthrejectreason$"><img border="0" hspace="2" src="$healthval$"></a></TD>
+<TD style="padding:3px; border-bottom: 1px solid #808080;" WIDTH="3%"><FONT COLOR="#0148CB">$guar$</TD>
+<TD style="padding:3px; border-bottom: 1px solid #808080;" WIDTH="27%">$product$</TD>
+<!-- <TD class="Row$rowEvenOdd$" WIDTH="3%"><FONT COLOR="#0148CB">$rgpfpp$&nbsp;</TD> -->
+<TD style="padding:3px; border-bottom: 1px solid #808080;" WIDTH="23%">$healthcat$</TD>
+<TD style="padding:3px; border-bottom: 1px solid #808080;" WIDTH="23%">
+<INPUT type="hidden" name="Sex" value="$sex$">
+<input type="hidden" name="ActualAge" value="$aage$">
+<input type="hidden" name="NearestAge" value="$nage$">
+<INPUT type="hidden" name="Birthday" value="$day$">
+<INPUT type="hidden" name="BirthMonth" value="$month$">
+<INPUT type="hidden" name="BirthYear" value="$year$">
+<INPUT type="hidden" name="Smoker" value="$smoker$">
+<INPUT type="hidden" name="FaceAmount" value="$face$">
+<INPUT type="hidden" name="HealthCategory" value="$healthcat$">
+<INPUT type="hidden" name="Health" value="$health$">
+<INPUT type="hidden" name="ModeUsed" value="$modeused$">
+<INPUT type="hidden" name="State" value="$state$">
+<INPUT type="hidden" name="Category" value="$cat$">
+<INPUT type="hidden" name="Company" value="$company$">
+<INPUT type="hidden" name="Product" value="$product$">
+<INPUT type="hidden" name="PremiumAnnual" value="$PremiumAnnual$">
+<INPUT type="hidden" name="PremiumMode" value="$Premium$">
+<INPUT type="hidden" name="UserLocation" value="$userlocation$">
+<INPUT type="hidden" name="email" value="$email$">
+<INPUT type="hidden" name="css" value="$css$">
+<INPUT type="submit" name="Submit" value="Request Application">
+</TD>
+</TR>
+
+</form>
+
+$/prodline$
+</TABLE>
+
+
+$/comparisonrepeat$
+<!-- The above line represents the end of a comparison section -->
+<!-- It must be on a line by itself -->
+
+</FORM>
+
+
+<!-- <p><I><FONT COLOR="#0148CB">** and gtd</FONT></I></B> are indicators
+
+that identify whether the premium quoted is guaranteed for the level period
+
+that you are comparing.
+
+<P><B><I><FONT color="#0148CB">**</FONT></I></B> - indicates a premium that 
+is <B>NOT</B> guaranteed for the level term period.  For this product, the 
+life company reserves the right to increase the premium before the end of 
+the initial level term period.  Make sure that you ask your agent for 
+an authorized life company illustration which will give you more information
+about this premium and what guarantees the company does provide.
+
+<P><B><I><FONT color="#0148CB">gtd</FONT></I></B> - indicates a premium that 
+is guaranteed for the level term period.  --> 
+
+<!-- <p><I><FONT COLOR="#0148CB">** and gtd</FONT></I></B> are indicators
+
+that identify whether the premium quoted is guaranteed for the level period
+
+that you are comparing.
+
+<P><B><I><FONT color="#0148CB">**</FONT></I></B> - indicates a premium that 
+is <B>NOT</B> guaranteed for the level term period.  For this product, the 
+life company reserves the right to increase the premium before the end of 
+the initial level term period.  Make sure that you ask your agent for 
+an authorized life company illustration which will give you more information
+about this premium and what guarantees the company does provide.
+
+<P><B><I><FONT color="#0148CB">gtd</FONT></I></B> - indicates a premium that 
+is guaranteed for the level term period.  
+
+<P><B><I><FONT color="#0148CB">P+, Pf, R+, and Rg</FONT></I></B> are indicators
+
+that will help you determine the underwriting (health and lifestyle) criteria
+
+that you will need to satisfy in order to qualify for the premium shown.
+
+
+<P><B><I><FONT color="#0148CB">P+</FONT></I></B> - indicates a rate for
+
+an individual in very preferred (preferred plus) health. A company offering
+
+a P+ premium also offers a preferred (Pf) and a regular (Rg) health premium.
+
+Pf premiums are less difficult to qualify for. Rg premiums are much less
+
+difficult to qualify for.
+
+
+
+<P><B><I><FONT color="#0148CB">Pf</FONT></I></B> - indicates a rate for
+
+an individual in preferred health. A company offering a Pf premium also
+
+offers a regular (Rg) health premium. Rg premiums are less difficult to
+
+qualify for.
+
+
+
+<P><B><I><FONT color="#0148CB">R+</FONT></I></B> - indicates a rate for
+
+an individual in somewhat better health than regular (Rg), but not what 
+
+the life insurance industry typically terms "preferred health".  
+
+A company offering an R+ premium also offers a regular (Rg) health premium. 
+
+Rg premiums are less difficult to qualify for.
+
+
+
+
+<P><B><I><FONT color="#0148CB">Rg</FONT></I></B> - indicates a rate for
+
+a person in normal health who does not have any medical or lifestyle condition
+
+which would increase their future risk of dying.
+
+
+
+<P><B><I><FONT color="#0148CB">Example:&nbsp; </FONT></I></B>A person who
+
+has moderately elevated blood pressure may not qualify for P+, Pf or R+ premium
+
+rates, but they might qualify for Rg. A private pilot may not qualify for
+
+P+ or Pf premiums, but might qualify for R+ or Rg rates. You will need to speak
+
+to the company or an insurance agent for more details. Premiums quoted
+
+for smokers already take into account that the insured person smokes and
+
+therefore has a greater risk of death than a non-smokers. Premiums offered
+
+to smokers are already higher than those for non-smokers. --> 
+
+
+
+
+
+<h3>Differences Between Companies and Products</h3>
+
+
+<P>The following is a brief list of some of the other factors that you will need to consider when comparing products and companies:
+
+
+
+<P><B><FONT color="#0148CB">Company Financial Strength</FONT></B> - Not all life insurance companies are the same. Some are very large financially, some are small. Some companies are in better financial condition than others.  The longer the level term period, the more important it is to consider how healthy and strong the life insurance company is. Make sure that you ask your agent for information about the financial ratings for the companies that you are considering.
+
+
+
+<P><B><FONT color="#0148CB">Premium Guarantees</FONT></B> - Are the premiums for the policy fully guaranteed?  Not all companies fully guarantee the initial premium for the entire level period. If two products have the same price, but one is guaranteed while the other is not, the guaranteed product would be better.
+
+
+
+<P><B><FONT color="#0148CB">Renewal Period</FONT></B> - Most level term policies have the ability to renew the policy beyond the initial level premium period. Two products may offer identical premiums for the initial level period, and yet there may be an enormous difference in renewal costs beyond the level period.  No Lapse U/L products have term-like 
+premiums which offer initial guaranteed level premiums comparable to the level periods of corresponding guaranteed level term policies.  For the intial level period, U/L policies with term-like guaranteed premiums provide comparable premium/death benefits as the 
+corresponding level term products.  However, the ability to renew those U/L policies, and the premiums that you might pay to renew those policies, can differ significantly from a corresponding level premium term policy.  
+
+
+
+<P><B><FONT color="#0148CB">Conversion Period</FONT></B> - Many term policies offer the ability to exchange the term policy for a whole life policy without having to again medically qualify. Should your health change, and should you not be able to buy a new policy elsewhere, you may find the conversion option important. Not all policies offer the same time period for conversion to take place, and not all give you access to the same types of whole life.
+
+
+
+<P><B><FONT color="#0148CB">Comparing Different Level Periods</FONT></B> - Should you be buying a 10 year term product, a 20 year term or a 30 year term? How long do you need the insurance? If you buy a 10 year term, how will future cost increases after the 10th year compare to a longer level term plan such as 20 year term? If you only need insurance for 10 years, you could be wasting your money buying a 20 year term product. You should discuss why you are buying the insurance with your agent and let them give you the benefit of their knowledge and experience. 
+
+
+
+<P><B><FONT color="#0148CB">Monthly Payment Options</FONT></B> - Many consumers pay their term insurance premiums on a monthly basis. The least expensive product based upon the annual premium may not have the lowest monthly, quarterly or semi-annual premium. Many life insurance companies charge extra to pay more frequently than annually, and some charge more than others.
+
+
+
+<P><B><FONT color="#0148CB">Health Risk Conditions</FONT></B> - Each life insurance company establishes its own health and lifestyle requirements to determine what premiums you may qualify for. Slightly high blood pressure may disqualify you for one company's preferred health premium, but might be acceptable to obtain another company's preferred health premium. Your agent will be able to give you more guidance.
+
+
+
+<P><B><FONT color="#0148CB">Smoking Considerations</FONT></B> - Not all life companies define smoking the same way. If you have never smoked or used tobacco products in any way, then a non-smoking comparison will include products that you can qualify for based upon non-smoking. If you were a smoker and later quit, then how long ago that you quit may limit your choices.  If you do smoke, some companies may offer products with better premiums depending on how little you smoke, or whether you smoke cigars or pipe rather than cigarettes. You will need to discuss all of this with your agent.
+
+
+
+<P><B><I><FONT color="#0148CB">There are other considerations that you will want to discuss with your agent.</FONT></I></B>
+
+
+<h3>About This Comparison</h3>
+
+
+
+<P>The information used in this comparison has been taken from the rate cards and rate manuals which life companies routinely publish and distribute to life agents and brokers. To the best of our ability we have done everything we can to ensure that the information contained in this comparison is up-to-date and accurate. However, <B><I><FONT color="#0148CB">WE CANNOT GUARANTEE ACCURACY.</FONT></I></B>
+
+
+
+<P>In the event that there is a discrepancy between the information contained in this comparison, and any life company authorized illustration and/or policy, <B><I><FONT color="#0148CB">the policy shall govern</FONT></I></B>.
+
+
+<p class="center"><b>Powered by <a class="nocolor" href="http://www.compulife.com">COMPULIFE</a><sup>&reg;</sup></b>
+
+</body>
+</html>

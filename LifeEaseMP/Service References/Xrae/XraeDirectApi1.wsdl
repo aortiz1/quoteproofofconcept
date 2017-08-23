@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://service.xrae.com/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="https://servicebrokeragemerged-uat.xrae.com/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="XraeDirectApi" targetNamespace="http://service.xrae.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="https://servicebrokeragemerged-uat.xrae.com/" location="https://servicebrokeragemerged-uat.xrae.com/direct.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://service.xrae.com/Imports">
+      <xsd:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd0" namespace="http://service.xrae.com/" />
+      <xsd:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Xrae.Service.Direct.Types.Enums" />
+      <xsd:import schemaLocation="https://servicebrokeragemerged-uat.xrae.com/direct.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Xrae.Pricing.VitalTerm.IO.VitalUL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="XraeDirectApi_AddCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCase" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_AddCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_UpdateCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCase" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_UpdateCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByKey" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCasesByClientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasesByClientName" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCasesByClientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasesByClientNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseUnderwriting_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseUnderwriting" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseUnderwriting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseUnderwritingResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseUnderwritingUI_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseUnderwritingUI" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseUnderwritingUI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseUnderwritingUIResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickUnderwriting_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickUnderwriting" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickUnderwriting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickUnderwritingResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickUnderwritingUI_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickUnderwritingUI" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickUnderwritingUI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickUnderwritingUIResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickTermPricingForCarriers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickTermPricingForCarriers" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickTermPricingForCarriers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickTermPricingForCarriersResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseTermPricingForCarriers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTermPricingForCarriers" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseTermPricingForCarriers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTermPricingForCarriersResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseULPricingForCarriers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseULPricingForCarriers" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseULPricingForCarriers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseULPricingForCarriersResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickTermPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickTermPricing" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetQuickTermPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuickTermPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetULCasePricingEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetULCasePricingEx" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetULCasePricingEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetULCasePricingExResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseULPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseULPricing" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseULPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseULPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseTermPricing_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTermPricing" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseTermPricing_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTermPricingResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseTermPricingEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTermPricingEx" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCaseTermPricingEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseTermPricingExResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCasetermPricingTermLength_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasetermPricingTermLength" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_GetCasetermPricingTermLength_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasetermPricingTermLengthResponse" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_RecordMIARCaseSearchResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecordMIARCaseSearchResults" />
+  </wsdl:message>
+  <wsdl:message name="XraeDirectApi_RecordMIARCaseSearchResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecordMIARCaseSearchResultsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="XraeDirectApi">
+    <wsdl:operation name="AddCase">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/AddCase" message="tns:XraeDirectApi_AddCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/AddCaseResponse" message="tns:XraeDirectApi_AddCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCase">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/UpdateCase" message="tns:XraeDirectApi_UpdateCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/UpdateCaseResponse" message="tns:XraeDirectApi_UpdateCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseByKey">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseByKey" message="tns:XraeDirectApi_GetCaseByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseByKeyResponse" message="tns:XraeDirectApi_GetCaseByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasesByClientName">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCasesByClientName" message="tns:XraeDirectApi_GetCasesByClientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCasesByClientNameResponse" message="tns:XraeDirectApi_GetCasesByClientName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseUnderwriting">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseUnderwriting" message="tns:XraeDirectApi_GetCaseUnderwriting_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseUnderwritingResponse" message="tns:XraeDirectApi_GetCaseUnderwriting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseUnderwritingUI">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseUnderwritingUI" message="tns:XraeDirectApi_GetCaseUnderwritingUI_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseUnderwritingUIResponse" message="tns:XraeDirectApi_GetCaseUnderwritingUI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickUnderwriting">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickUnderwriting" message="tns:XraeDirectApi_GetQuickUnderwriting_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickUnderwritingResponse" message="tns:XraeDirectApi_GetQuickUnderwriting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickUnderwritingUI">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickUnderwritingUI" message="tns:XraeDirectApi_GetQuickUnderwritingUI_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickUnderwritingUIResponse" message="tns:XraeDirectApi_GetQuickUnderwritingUI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickTermPricingForCarriers">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickTermPricingForCarriers" message="tns:XraeDirectApi_GetQuickTermPricingForCarriers_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickTermPricingForCarriersResponse" message="tns:XraeDirectApi_GetQuickTermPricingForCarriers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTermPricingForCarriers">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseTermPricingForCarriers" message="tns:XraeDirectApi_GetCaseTermPricingForCarriers_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseTermPricingForCarriersResponse" message="tns:XraeDirectApi_GetCaseTermPricingForCarriers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseULPricingForCarriers">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseULPricingForCarriers" message="tns:XraeDirectApi_GetCaseULPricingForCarriers_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseULPricingForCarriersResponse" message="tns:XraeDirectApi_GetCaseULPricingForCarriers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuickTermPricing">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickTermPricing" message="tns:XraeDirectApi_GetQuickTermPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetQuickTermPricingResponse" message="tns:XraeDirectApi_GetQuickTermPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetULCasePricingEx">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetULCasePricingEx" message="tns:XraeDirectApi_GetULCasePricingEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetULCasePricingExResponse" message="tns:XraeDirectApi_GetULCasePricingEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseULPricing">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseULPricing" message="tns:XraeDirectApi_GetCaseULPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseULPricingResponse" message="tns:XraeDirectApi_GetCaseULPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTermPricing">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseTermPricing" message="tns:XraeDirectApi_GetCaseTermPricing_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseTermPricingResponse" message="tns:XraeDirectApi_GetCaseTermPricing_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseTermPricingEx">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseTermPricingEx" message="tns:XraeDirectApi_GetCaseTermPricingEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCaseTermPricingExResponse" message="tns:XraeDirectApi_GetCaseTermPricingEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasetermPricingTermLength">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCasetermPricingTermLength" message="tns:XraeDirectApi_GetCasetermPricingTermLength_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/GetCasetermPricingTermLengthResponse" message="tns:XraeDirectApi_GetCasetermPricingTermLength_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecordMIARCaseSearchResults">
+      <wsdl:input wsaw:Action="http://service.xrae.com/XraeDirectApi/RecordMIARCaseSearchResults" message="tns:XraeDirectApi_RecordMIARCaseSearchResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.xrae.com/XraeDirectApi/RecordMIARCaseSearchResultsResponse" message="tns:XraeDirectApi_RecordMIARCaseSearchResults_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="XraeDirectApi">
+    <wsdl:port name="WSHttpBinding_XraeDirectApi" binding="i0:WSHttpBinding_XraeDirectApi">
+      <soap12:address location="https://servicebrokeragemerged-uat.xrae.com/direct.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://servicebrokeragemerged-uat.xrae.com/direct.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

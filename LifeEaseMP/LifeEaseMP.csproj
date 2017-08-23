@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94E9B3B6-CC5A-4067-B832-9821C8E85603}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LifeEaseMP</RootNamespace>
+    <AssemblyName>LifeEaseMP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.aspx" />
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\DKREASON.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\ERC.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\ERCSETUP.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\ERRORTEM.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\GOREASON.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HEALTH.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HINIT.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPL2.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPLATE.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPLATE_LOGO.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPLATE_LOGO_0.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPLATE_LOGO_1.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPLATE_LOGO_2.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPLATE_MORE_INFO.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\HTEMPLATE_REQUEST_AP.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\INDEXMINIHEALTH2.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\IRCSETUP.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\MODCOMP.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\SAVED.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\TEMPLATE.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\TEMPLATE_LOGO.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\TEMPLATE_LOGO_0.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\TEMPLATE_LOGO_1.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\TEMPLATE_LOGO_2.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\TEMPLATE_MORE_INFO.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\USER\USER2\TEMPLATE_REQUEST_AP.HTM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\nph-cqs32.exe" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\DKREASON.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\ERC.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\ERCSETUP.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\ERRORTEM.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\GOREASON.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HEALTH.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HINIT.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPL2.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPLATE.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPLATE_LOGO.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPLATE_LOGO_0.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPLATE_LOGO_1.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPLATE_LOGO_2.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPLATE_MORE_INFO.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\HTEMPLATE_REQUEST_AP.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\INDEXMINIHEALTH2.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\IRCSETUP.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\MODCOMP.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\SAVED.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\TEMPLATE.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\TEMPLATE_LOGO.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\TEMPLATE_LOGO_0.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\TEMPLATE_LOGO_1.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\TEMPLATE_LOGO_2.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\TEMPLATE_MORE_INFO.HTM" />
+    <Content Include="public_html\COMPLIFE\USER\USER2\TEMPLATE_REQUEST_AP.HTM" />
+    <Content Include="public_html\css\bootstrap.css" />
+    <Content Include="public_html\css\bootstrap.min.css" />
+    <Content Include="public_html\css\styles.css" />
+    <Content Include="public_html\css\styles_mobile.css" />
+    <Content Include="public_html\css\styles_website.css" />
+    <Content Include="public_html\css\styles_website_c_1.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D01">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D02">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D03">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D04">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D05">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D06">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D07">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D08">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D09">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0A">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0B">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0C">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0D">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0E">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0F">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0G">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0H">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0J">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0K">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0L">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0M">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0N">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0O">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0P">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0Q">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0R">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0S">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0T">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0U">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0V">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0W">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0X">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\COMP.D0Y">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\CQS.PRM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\GO.PRM">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\HEALTH.DAT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D01">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D02">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D03">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D04">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D05">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D06">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D07">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D08">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D09">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0A">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0B">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0C">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0D">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0E">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0F">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0G">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0H">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0J">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0K">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0L">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0M">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0N">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0O">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0P">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0Q">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0R">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0S">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0T">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0U">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0V">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0W">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0X">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public_html\cgi-bin\COMPLIFE\RATE.D0Y">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EnableIsapi.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\LifeEase.pubxml" />
+    <None Include="Properties\PublishProfiles\LifeEaseMPAzure1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\LifeEaseQuota - Web Deploy.pubxml" />
+    <Content Include="public_html\cgi-bin\COMPLIFE\ROPFT.000" />
+    <Content Include="public_html\cgi-bin\COMPLIFE\decomp.prm" />
+    <Content Include="public_html\COMPLIFE\COMP.D01" />
+    <Content Include="public_html\COMPLIFE\COMP.D02" />
+    <Content Include="public_html\COMPLIFE\COMP.D03" />
+    <Content Include="public_html\COMPLIFE\COMP.D04" />
+    <Content Include="public_html\COMPLIFE\COMP.D05" />
+    <Content Include="public_html\COMPLIFE\COMP.D06" />
+    <Content Include="public_html\COMPLIFE\COMP.D07" />
+    <Content Include="public_html\COMPLIFE\COMP.D08" />
+    <Content Include="public_html\COMPLIFE\COMP.D09" />
+    <Content Include="public_html\COMPLIFE\COMP.D0A" />
+    <Content Include="public_html\COMPLIFE\COMP.D0B" />
+    <Content Include="public_html\COMPLIFE\COMP.D0C" />
+    <Content Include="public_html\COMPLIFE\COMP.D0D" />
+    <Content Include="public_html\COMPLIFE\COMP.D0E" />
+    <Content Include="public_html\COMPLIFE\COMP.D0F" />
+    <Content Include="public_html\COMPLIFE\COMP.D0G" />
+    <Content Include="public_html\COMPLIFE\COMP.D0H" />
+    <Content Include="public_html\COMPLIFE\COMP.D0J" />
+    <Content Include="public_html\COMPLIFE\COMP.D0K" />
+    <Content Include="public_html\COMPLIFE\COMP.D0L" />
+    <Content Include="public_html\COMPLIFE\COMP.D0M" />
+    <Content Include="public_html\COMPLIFE\COMP.D0N" />
+    <Content Include="public_html\COMPLIFE\COMP.D0O" />
+    <Content Include="public_html\COMPLIFE\COMP.D0P" />
+    <Content Include="public_html\COMPLIFE\COMP.D0Q" />
+    <Content Include="public_html\COMPLIFE\COMP.D0R" />
+    <Content Include="public_html\COMPLIFE\COMP.D0S" />
+    <Content Include="public_html\COMPLIFE\COMP.D0T" />
+    <Content Include="public_html\COMPLIFE\COMP.D0U" />
+    <Content Include="public_html\COMPLIFE\COMP.D0V" />
+    <Content Include="public_html\COMPLIFE\COMP.D0W" />
+    <Content Include="public_html\COMPLIFE\COMP.D0X" />
+    <Content Include="public_html\COMPLIFE\COMP.D0Y" />
+    <Content Include="public_html\COMPLIFE\COMPANY.DAT" />
+    <Content Include="public_html\COMPLIFE\CQS.PRM" />
+    <Content Include="public_html\COMPLIFE\decomp.prm" />
+    <Content Include="public_html\COMPLIFE\GO.PRM" />
+    <Content Include="public_html\COMPLIFE\HEALTH.DAT" />
+    <Content Include="public_html\COMPLIFE\RATE.D01" />
+    <Content Include="public_html\COMPLIFE\RATE.D02" />
+    <Content Include="public_html\COMPLIFE\RATE.D03" />
+    <Content Include="public_html\COMPLIFE\RATE.D04" />
+    <Content Include="public_html\COMPLIFE\RATE.D05" />
+    <Content Include="public_html\COMPLIFE\RATE.D06" />
+    <Content Include="public_html\COMPLIFE\RATE.D07" />
+    <Content Include="public_html\COMPLIFE\RATE.D08" />
+    <Content Include="public_html\COMPLIFE\RATE.D09" />
+    <Content Include="public_html\COMPLIFE\RATE.D0A" />
+    <Content Include="public_html\COMPLIFE\RATE.D0B" />
+    <Content Include="public_html\COMPLIFE\RATE.D0C" />
+    <Content Include="public_html\COMPLIFE\RATE.D0D" />
+    <Content Include="public_html\COMPLIFE\RATE.D0E" />
+    <Content Include="public_html\COMPLIFE\RATE.D0F" />
+    <Content Include="public_html\COMPLIFE\RATE.D0G" />
+    <Content Include="public_html\COMPLIFE\RATE.D0H" />
+    <Content Include="public_html\COMPLIFE\RATE.D0J" />
+    <Content Include="public_html\COMPLIFE\RATE.D0K" />
+    <Content Include="public_html\COMPLIFE\RATE.D0L" />
+    <Content Include="public_html\COMPLIFE\RATE.D0M" />
+    <Content Include="public_html\COMPLIFE\RATE.D0N" />
+    <Content Include="public_html\COMPLIFE\RATE.D0O" />
+    <Content Include="public_html\COMPLIFE\RATE.D0P" />
+    <Content Include="public_html\COMPLIFE\RATE.D0Q" />
+    <Content Include="public_html\COMPLIFE\RATE.D0R" />
+    <Content Include="public_html\COMPLIFE\RATE.D0S" />
+    <Content Include="public_html\COMPLIFE\RATE.D0T" />
+    <Content Include="public_html\COMPLIFE\RATE.D0U" />
+    <Content Include="public_html\COMPLIFE\RATE.D0V" />
+    <Content Include="public_html\COMPLIFE\RATE.D0W" />
+    <Content Include="public_html\COMPLIFE\RATE.D0X" />
+    <Content Include="public_html\COMPLIFE\RATE.D0Y" />
+    <Content Include="public_html\COMPLIFE\ROPFT.000" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="public_html\images\dk.bmp" />
+    <Content Include="public_html\images\go.bmp" />
+    <Content Include="public_html\images\no.bmp" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="public_html\usmain.aspx" />
+    <None Include="Service References\Xrae\configuration91.svcinfo" />
+    <None Include="Service References\Xrae\configuration.svcinfo" />
+    <None Include="Service References\Xrae\direct1.disco" />
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.AddCaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.GetCaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.GetCasesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.GetTermPricingResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.GetULPricingResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.GetUnderwritingResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.RecordCaseSearchMIARResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Xrae\LifeEaseMP.Xrae.UpdateCaseResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\Xrae\direct1.wsdl" />
+    <None Include="Service References\Xrae\direct5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Xrae\direct51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Xrae\direct52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Xrae\direct53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Xrae\direct54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Xrae\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Service References\Xrae\XraeDirectApi1.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="public_html\usmain.aspx.cs">
+      <DependentUpon>usmain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="public_html\usmain.aspx.designer.cs">
+      <DependentUpon>usmain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Xrae\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Xrae\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63943</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63943/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
